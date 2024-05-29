@@ -1,0 +1,193 @@
+.dashboardEarnDiv_cont1 {
+  display: flex;
+  justify-content: space-between;
+}
+.dashboardEarnDiv_cont1_div1 {
+  width: 100%;
+  /* background: #202e2c; */
+  padding: 1em 0em;
+  border-radius: 20px;
+  /* margin-right: 1em; */
+  display: flex;
+  justify-content: space-between;
+  padding-right: 0;
+}
+.dashboardEarnDiv_cont1_div2 {
+  width: 40%;
+  /* background: #1f2e2c; */
+  padding: 1em;
+  border-radius: 20px;
+  padding-left: 1.5em;
+  padding-right: 0;
+}
+.dashboardEarnDiv_cont1_div1_earn_amount {
+  background: #2e524c;
+  padding: 2em;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  align-items: center;
+}
+.dashboardEarnDiv_cont1_div1_earn_amount_cont1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.dashboardEarnDiv_cont1_div1_earn_amount_cont1_title {
+  margin-bottom: 10px;
+  color: #aebab8;
+}
+.dashboardEarnDiv_cont1_div1_earn_amount_cont1_amount {
+  display: flex;
+  align-items: center;
+  font-size: 48px;
+  font-weight: 600;
+}
+.dashboardEarnDiv_cont1_div1_earn_amount_cont1_amount_img {
+  width: 40px;
+  margin-bottom: -8px;
+  margin-right: 6px;
+}
+.dashboardEarnDiv_cont1_div1_earn_amount_cont1_amount_span {
+  font-size: 24px;
+  margin-bottom: -12px;
+  margin-left: 4px;
+}
+.dashboardEarnDiv_cont1_div1_earn_amount_cont2 {
+  width: 80%;
+  height: 85px;
+}
+.dashboardEarnDiv_cont1_div1_cont2 {
+  background: #2e524c;
+  padding: 2em;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 35%;
+  /* align-items: center; */
+  flex-direction: column;
+  margin-left: 1em;
+}
+.dashboardEarnDiv_cont1_div2_cont1 {
+  background: #2e524c;
+  padding: 2em;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: -webkit-fill-available;
+  /* align-items: center; */
+  flex-direction: column;
+}
+.dashboardEarnDiv_cont1_div1_cont2_title {
+  margin-bottom: 10px;
+  color: #aebab8;
+}
+.dashboardEarnDiv_cont1_div1_cont2_amount {
+  display: flex;
+  align-items: center;
+  font-size: 48px;
+  font-weight: 600;
+}
+.dashboardEarnDiv_cont1_div1_cont2_amount_icon {
+  margin-right: 10px;
+  background: #34926b;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.dashboardEarnDiv_cont2_title {
+  font-size: 32px;
+}
+
+.dashboardEarnDiv_cont2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+}
+.dashboardEarnDiv_cont2_title {
+  font-size: 32px;
+}
+.dashboardEarnDiv_cont2_div1 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+}
+.dashboardEarnDiv_cont2_div1_head {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  background: #1f2e2c;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 1em;
+}
+.dashboardEarnDiv_cont2_div1_head_cont1_first {
+  width: 100%;
+  color: #929e9b;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.dashboardEarnDiv_cont2_div1_head_cont1_last {
+  width: 100%;
+  color: #929e9b;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.dashboardEarnDiv_cont2_div1_head_cont1 {
+  width: 100%;
+  color: #929e9b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dashboardEarnDiv_cont2_div1_cont1 {
+  display: flex;
+  width: -webkit-fill-available;
+  background: #2e524c;
+  display: flex;
+  /* align-items: center; */
+  border-radius: 10px;
+  margin-bottom: 7px;
+}
+.dashboardEarnDiv_cont2_div1_cont1_div_first {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  justify-content: flex-start;
+}
+.dashboardEarnDiv_cont2_div1_cont1_product_divImg {
+  width: 70px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 7px;
+  margin-right: 10px;
+}
+.dashboardEarnDiv_cont2_div1_cont1_div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1em;
+  justify-content: center;
+}
+.dashboardEarnDiv_cont2_div1_cont1_div_img {
+  width: 15px;
+  margin-right: 4px;
+  margin-bottom: -3px;
+}
+.dashboardEarnDiv_cont2_div1_cont1_div_last {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  justify-content: flex-end;
+}
+.dashboardEarnDiv_cont2_div1_cont1_div_last_btn {
+  width: 120px;
+  padding: 10px;
+  border-radius: 9px;
+  border: none;
+}

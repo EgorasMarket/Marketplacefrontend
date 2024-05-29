@@ -1,0 +1,38 @@
+.DashboardTransactions_div {
+  display: flex;
+  flex-direction: column;
+  animation: zoomOutCustom2;
+  animation-duration: 0.5s;
+}
+.DashboardTransactions_div_1 {
+  padding: 2em;
+  background: #2e524c;
+  margin-bottom: 2em;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.DashboardTransactions_div_1_title {
+  font-size: 18px;
+  color: #dcf8f3;
+}
+.DashboardTransactions_div_1_amount {
+  font-size: 38px;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  align-items: baseline;
+}
+.DashboardTransactions_div_1_amount_span {
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 5px;
+}
+@media screen and (max-width: 600px) {
+  .DashboardWalletsDiv_area2b {
+    padding: 1em;
+  }
+  .dashboardOrder_div_tabs {
+    margin: 1em 0em;
+  }
+}

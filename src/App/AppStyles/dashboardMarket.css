@@ -1,0 +1,97 @@
+.dashboardMarketPlace {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboardMarketPlace_div1 {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.market_trending_div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+}
+.market_trending_div_body {
+  display: grid;
+  gap: 20px 20px;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-content: flex-start;
+}
+.dashboardMarketPlace_div1_img {
+  width: 100%;
+  border-radius: 20px;
+  height: 100%;
+  object-fit: cover;
+}
+.dashboardMarketPlace_div1_body {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+}
+.dashboardMarketPlace_div1_body_title {
+  font-size: 32px;
+  color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
+.dashboardMarketPlace_div1_body_conts {
+  display: grid;
+  gap: 20px 20px;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-content: flex-start;
+}
+.dashboardMarketPlace_div1_body_conts_div1 {
+  display: flex;
+  flex-direction: column;
+  background: #233432;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.dashboardMarketPlace_div1_body_conts_div1_img {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 1em;
+}
+.dashboardMarketPlace_div1_body_conts_div1_img_div {
+  height: 250px;
+  overflow: hidden;
+  margin-bottom: 1%;
+}
+.dashboardMarketPlace_div1_body_conts_div1_title {
+  padding: 0.5em 1em;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+}
+.dashboardMarketPlace_div1_body_conts_div1_amount {
+  padding: 0.1em 1em;
+  display: flex;
+  align-items: center;
+  color: #a0b4b1;
+  font-size: 18px;
+}
+.dashboardMarketPlace_div1_body_conts_div1_amount_span {
+  margin-left: 5px;
+}
+.dashboardMarketPlace_div1_body_conts_div1_creator {
+  padding: 1em 1em;
+  /* font-size: 14px; */
+  color: #9fb3b0;
+  display: flex;
+  align-items: center;
+}
+.dashboardMarketPlace_div1_body_conts_div1_creator_span {
+  margin-left: 5px;
+  color: #fff;
+  font-weight: 700;
+}
