@@ -6,6 +6,7 @@ import formatNumber from "../../Components/FormatNumber";
 import { UserGroupIcon } from "hugeicons-react";
 import { Table } from "../../Components/Tables/TableComp";
 import Staticdata from "../../assets/json/Static";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   AreaChart,
   Area,
@@ -15,95 +16,104 @@ import {
   BarChart,
   ResponsiveContainer,
 } from "recharts";
+import { FETCH_ALL_STAKE } from "../../Services/ProductServices";
+import {
+  FETCH_DASHBOARD_DATA,
+  FETCH_REFERRAL_DATA,
+  FETCH_STAKE_POOL_DATA,
+} from "../../Services/userServices";
 
 const DashboardHome = () => {
+  const queryClient = useQueryClient();
+
   const [graphData2, setGraphData2] = useState([]);
+
   const [graphData, setGraphData] = useState([
-    {
-      value: 3729.2599999999998,
-      timestamp: "Jan 01, 2024",
-      month: "Jan",
-    },
-    {
-      value: 459.12999999999994,
-      timestamp: "Dec 30, 2023",
-      month: "Dec",
-    },
-    {
-      value: 412.28,
-      timestamp: "Dec 29, 2023",
-      month: "Dec",
-    },
-    {
-      value: 28.11,
-      timestamp: "Dec 25, 2023",
-      month: "Dec",
-    },
-    {
-      value: 0,
-      timestamp: "Dec 24, 2023",
-      month: "Dec",
-    },
-    {
-      value: 281.09999999999997,
-      timestamp: "Dec 23, 2023",
-      month: "Dec",
-    },
-    {
-      value: 103.07,
-      timestamp: "Dec 17, 2023",
-      month: "Dec",
-    },
-    {
-      value: 3738.6299999999997,
-      timestamp: "Dec 16, 2023",
-      month: "Dec",
-    },
-    {
-      value: 993.2199999999999,
-      timestamp: "Dec 10, 2023",
-      month: "Dec",
-    },
-    {
-      value: 0,
-      timestamp: "Dec 08, 2023",
-      month: "Dec",
-    },
-    {
-      value: 65.58999999999999,
-      timestamp: "Dec 07, 2023",
-      month: "Dec",
-    },
-    {
-      value: 65.58999999999999,
-      timestamp: "Dec 06, 2023",
-      month: "Dec",
-    },
-    {
-      value: 580.9399999999999,
-      timestamp: "Dec 05, 2023",
-      month: "Dec",
-    },
-    {
-      value: 65.58999999999999,
-      timestamp: "Dec 04, 2023",
-      month: "Dec",
-    },
-    {
-      value: 65.58999999999999,
-      timestamp: "Dec 03, 2023",
-      month: "Dec",
-    },
-    {
-      value: 11290.849999999999,
-      timestamp: "Dec 01, 2023",
-      month: "Dec",
-    },
-    {
-      value: 15872.779999999999,
-      timestamp: "Nov 29, 2023",
-      month: "Nov",
-    },
+    // {
+    //   value: 3729.2599999999998,
+    //   timestamp: "Jan 01, 2024",
+    //   month: "Jan",
+    // },
+    // {
+    //   value: 459.12999999999994,
+    //   timestamp: "Dec 30, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 412.28,
+    //   timestamp: "Dec 29, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 28.11,
+    //   timestamp: "Dec 25, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 0,
+    //   timestamp: "Dec 24, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 281.09999999999997,
+    //   timestamp: "Dec 23, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 103.07,
+    //   timestamp: "Dec 17, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 3738.6299999999997,
+    //   timestamp: "Dec 16, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 993.2199999999999,
+    //   timestamp: "Dec 10, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 0,
+    //   timestamp: "Dec 08, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 65.58999999999999,
+    //   timestamp: "Dec 07, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 65.58999999999999,
+    //   timestamp: "Dec 06, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 580.9399999999999,
+    //   timestamp: "Dec 05, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 65.58999999999999,
+    //   timestamp: "Dec 04, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 65.58999999999999,
+    //   timestamp: "Dec 03, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 11290.849999999999,
+    //   timestamp: "Dec 01, 2023",
+    //   month: "Dec",
+    // },
+    // {
+    //   value: 15872.779999999999,
+    //   timestamp: "Nov 29, 2023",
+    //   month: "Nov",
+    // },
   ]);
   const [ChartValue, setChartValue] = useState(0);
   const [ChartTime, setChartTime] = useState(0);
@@ -113,6 +123,57 @@ const DashboardHome = () => {
   const [lastIndex, setlastIndex] = useState(0);
   const [LastArray2, setLastArray2] = useState(0);
   const [lastIndex2, setlastIndex2] = useState(0);
+
+  const [dashData, setDashData] = useState({});
+  const [referralCount, setReferralCount] = useState(0);
+  const {
+    data: dashInfo,
+    isPending: isDashLoading,
+    isError: isDashError,
+    error: dashError,
+  } = useQuery({
+    queryKey: "dash_data",
+    queryFn: async () => {
+      const res = await FETCH_DASHBOARD_DATA();
+      console.log("====================================");
+      console.log(res);
+      console.log(res);
+      setDashData(res.data);
+      return res;
+    },
+  });
+  const {
+    data: graph_data,
+    isPending: isGraphDataLoading,
+    isError: isGraphError,
+    error: graphError,
+  } = useQuery({
+    queryKey: "dash_data",
+    queryFn: async () => {
+      const res = await FETCH_STAKE_POOL_DATA();
+      console.log("====================================");
+      console.log(res);
+      console.log(res);
+      setGraphData(res.data);
+      return res;
+    },
+  });
+  const {
+    data: referralInfo,
+    isPending: isReferralPending,
+    isError: isReferralError,
+    error: referralError,
+  } = useQuery({
+    queryKey: "refer_data",
+    queryFn: async () => {
+      const res = await FETCH_REFERRAL_DATA();
+      console.log("====================================");
+      console.log(res, "alalalal");
+      console.log(res);
+      setReferralCount(res?.count);
+      return res;
+    },
+  });
 
   const CustomTooltip2 = ({ active, payload, label }) => {
     console.log(active, payload);
@@ -130,44 +191,6 @@ const DashboardHome = () => {
     }
     return null;
   };
-  // useEffect(() => {
-  //  myArray.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-  //  console.log(myArray);
-  //  const reversed = myArray
-  //    .slice()
-  //    .reverse()
-  //    .map((data) => {
-  //      return data;
-  //    });
-  //  const temp = reversed;
-  //  for (const data of temp) {
-  //    data.value = parseInt(data.value).toFixed(2) * egc_usd;
-  //    const date = new Date(data.timestamp);
-  //    const day = date.getUTCDate().toString().padStart(2, "0");
-  //    const month = (date.getUTCMonth() + 1).toString().padStart(2, "0");
-  //    const year = date.getUTCFullYear();
-  //    const formattedDated = `${day}/${month}/${year}`;
-  //    const dateString = formattedDated;
-  //    const dateParts = dateString.split("/");
-  //    // new Date(year, monthIndex, day)
-  //    const dateObj = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
-  //    // format the date using toLocaleDateString()
-  //    const formattedDate = dateObj.toLocaleDateString("en-US", {
-  //      month: "short",
-  //      day: "2-digit",
-  //      year: "numeric",
-  //    });
-  //    data.timestamp = formattedDate;
-  //    data.month = getMonthFromNumber(data.month);
-  //  }
-  //  console.log(reversed);
-  // //  const totalValue = reversed.reduce((accumulator, currentValue) => {
-  // //    console.log(accumulator, currentValue);
-  // //    return accumulator + currentValue.value;
-  // //  }, 0);
-  //  console.log(temp);
-  //  setGraphData(() => temp);
-  // }, [third])
 
   const tableData = [
     {
@@ -1434,88 +1457,94 @@ const DashboardHome = () => {
 
   return (
     <div className="dashboard_home_page_div">
-      <div className="dashboard_home_page_div_1">
-        <div className="dashboard_home_page_div_1_title">User Overview</div>
-        <div className="dashboard_home_page_div_1_body">
-          <div className="dashboard_home_page_div_1_cont1">
-            <div className="dashboard_home_page_div_1_cont1_div1">
-              <div className="dashboard_home_page_div_1_cont1_div1_title">
-                Products bought
+      {isDashLoading ? (
+        <div>...</div>
+      ) : isDashError ? (
+        <div> {dashError} </div>
+      ) : (
+        <div className="dashboard_home_page_div_1">
+          <div className="dashboard_home_page_div_1_title">User Overview</div>
+          <div className="dashboard_home_page_div_1_body">
+            <div className="dashboard_home_page_div_1_cont1">
+              <div className="dashboard_home_page_div_1_cont1_div1">
+                <div className="dashboard_home_page_div_1_cont1_div1_title">
+                  Products bought
+                </div>
+                <div className="dashboard_home_page_div_1_cont1_div1_content">
+                  {dashData.products_bought}
+                  <span className="dashboard_home_page_div_1_cont1_div1_content_span">
+                    products
+                  </span>
+                </div>
               </div>
-              <div className="dashboard_home_page_div_1_cont1_div1_content">
-                200{" "}
-                <span className="dashboard_home_page_div_1_cont1_div1_content_span">
-                  products
-                </span>
-              </div>
+              {/* <div className="dashboard_home_page_div_1_cont1_icon"> */}
+              <ShoppingBasket01Icon
+                size={28}
+                className="dashboard_home_page_div_1_cont1_icon"
+              />
+              {/* </div> */}
             </div>
-            {/* <div className="dashboard_home_page_div_1_cont1_icon"> */}
-            <ShoppingBasket01Icon
-              size={28}
-              className="dashboard_home_page_div_1_cont1_icon"
-            />
-            {/* </div> */}
-          </div>
 
-          <div className="dashboard_home_page_div_1_cont1">
-            <div className="dashboard_home_page_div_1_cont1_div1">
-              <div className="dashboard_home_page_div_1_cont1_div1_title">
-                Amount Earned
+            <div className="dashboard_home_page_div_1_cont1">
+              <div className="dashboard_home_page_div_1_cont1_div1">
+                <div className="dashboard_home_page_div_1_cont1_div1_title">
+                  Amount Earned
+                </div>
+                <div className="dashboard_home_page_div_1_cont1_div1_content">
+                  {dashData.amount_earned}
+                  <span className="dashboard_home_page_div_1_cont1_div1_content_span">
+                    egax
+                  </span>
+                </div>
               </div>
-              <div className="dashboard_home_page_div_1_cont1_div1_content">
-                10.00
-                <span className="dashboard_home_page_div_1_cont1_div1_content_span">
-                  egax
-                </span>
-              </div>
+              {/* <div className="dashboard_home_page_div_1_cont1_icon"> */}
+              <StakeIcon
+                size={28}
+                className="dashboard_home_page_div_1_cont1_icon"
+              />
+              {/* </div> */}
             </div>
-            {/* <div className="dashboard_home_page_div_1_cont1_icon"> */}
-            <StakeIcon
-              size={28}
-              className="dashboard_home_page_div_1_cont1_icon"
-            />
-            {/* </div> */}
-          </div>
-          <div className="dashboard_home_page_div_1_cont1">
-            <div className="dashboard_home_page_div_1_cont1_div1">
-              <div className="dashboard_home_page_div_1_cont1_div1_title">
-                Total Referrals
+            <div className="dashboard_home_page_div_1_cont1">
+              <div className="dashboard_home_page_div_1_cont1_div1">
+                <div className="dashboard_home_page_div_1_cont1_div1_title">
+                  Total Referrals
+                </div>
+                <div className="dashboard_home_page_div_1_cont1_div1_content">
+                  {referralCount}
+                  <span className="dashboard_home_page_div_1_cont1_div1_content_span">
+                    ref(s)
+                  </span>
+                </div>
               </div>
-              <div className="dashboard_home_page_div_1_cont1_div1_content">
-                5
-                <span className="dashboard_home_page_div_1_cont1_div1_content_span">
-                  ref(s)
-                </span>
-              </div>
+              {/* <div className="dashboard_home_page_div_1_cont1_icon"> */}
+              <UserGroupIcon
+                size={28}
+                className="dashboard_home_page_div_1_cont1_icon"
+              />
+              {/* </div> */}
             </div>
-            {/* <div className="dashboard_home_page_div_1_cont1_icon"> */}
-            <UserGroupIcon
-              size={28}
-              className="dashboard_home_page_div_1_cont1_icon"
-            />
-            {/* </div> */}
-          </div>
-          <div className="dashboard_home_page_div_1_cont1">
-            <div className="dashboard_home_page_div_1_cont1_div1">
-              <div className="dashboard_home_page_div_1_cont1_div1_title">
-                Total Referrals
+            <div className="dashboard_home_page_div_1_cont1">
+              <div className="dashboard_home_page_div_1_cont1_div1">
+                <div className="dashboard_home_page_div_1_cont1_div1_title">
+                  Total Referrals
+                </div>
+                <div className="dashboard_home_page_div_1_cont1_div1_content">
+                  {referralCount}
+                  <span className="dashboard_home_page_div_1_cont1_div1_content_span">
+                    ref(s)
+                  </span>
+                </div>
               </div>
-              <div className="dashboard_home_page_div_1_cont1_div1_content">
-                5
-                <span className="dashboard_home_page_div_1_cont1_div1_content_span">
-                  ref(s)
-                </span>
-              </div>
+              {/* <div className="dashboard_home_page_div_1_cont1_icon"> */}
+              <UserGroupIcon
+                size={28}
+                className="dashboard_home_page_div_1_cont1_icon"
+              />
+              {/* </div> */}
             </div>
-            {/* <div className="dashboard_home_page_div_1_cont1_icon"> */}
-            <UserGroupIcon
-              size={28}
-              className="dashboard_home_page_div_1_cont1_icon"
-            />
-            {/* </div> */}
           </div>
         </div>
-      </div>
+      )}
       {/* ======================== */}
       {/* ======================== */}
       {/* ======================== */}
