@@ -21,3 +21,6 @@ export const SEND_FUNDS_INTERNAL_ROUTE = `/api/withdrawal/internal`;
 export const LIST_BANKS_ROUTE = `/api/withdrawal/list-banks`;
 export const VERIFY_BANK_ROUTE = `/api/withdrawal/verify/account`;
 export const PROCESS_FIAT_CASHOUT_ROUTE = `/api/withdrawal/cashout`;
+export const GET_REFERRAL_COUNT_ROUTE = `/api/referral/count`;
+export const GET_DASHBOARD_DATA_ROUTE = `/api/dashboard/data`;
+export const GET_STAKE_DATA_ROUTE = `/api/dashboard/stake/data`;
