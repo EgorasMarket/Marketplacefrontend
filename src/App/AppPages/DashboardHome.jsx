@@ -148,13 +148,13 @@ const DashboardHome = () => {
     isError: isGraphError,
     error: graphError,
   } = useQuery({
-    queryKey: "dash_data",
+    queryKey: "graph_data",
     queryFn: async () => {
       const res = await FETCH_STAKE_POOL_DATA();
       console.log("====================================");
       console.log(res);
-      console.log(res);
-      setGraphData(res.data);
+      console.log(res, "graph data");
+      setGraphData(res.data.stakeData);
       return res;
     },
   });
