@@ -86,7 +86,7 @@ const DashboardOrders = () => {
               <div className="ProductLoadingDiv">
                 <div className="prod_loading_cont">
                   <SyncLoader
-                    color="#6ebbb1"
+                    color="#18b36a"
                     aria-label="Loading Spinner"
                     data-testid="loader"
                     className="loading_div_area_cont_icon"

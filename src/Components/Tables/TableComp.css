@@ -41,7 +41,7 @@
   border-radius: 8px;
   border: none;
   font-size: 14px;
-  background: #6ebbb1;
+  background: #18b36a;
   color: #000000;
   font-weight: 500;
 }
@@ -278,8 +278,8 @@
 .page-item.active .page-link {
   z-index: 3;
   color: #fff !important;
-  background-color: #6ebbb1 !important;
-  border-color: #6ebbb1 !important;
+  background-color: #18b36a !important;
+  border-color: #18b36a !important;
 }
 .pagination_header_body_cont1 {
   font-size: 22px;
@@ -302,7 +302,7 @@
   padding: 15px;
   border-radius: 10px;
   border: none;
-  background: #6ebbb1;
+  background: #18b36a;
   font-weight: 500;
   color: #fff;
   display: flex;

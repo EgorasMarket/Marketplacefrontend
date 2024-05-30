@@ -5,7 +5,7 @@
 }
 .ProductDetailPage_section_area {
   display: flex;
-  margin-top: 5em;
+  /* margin-top: 5em; */
   position: relative;
 }
 .ProductDetailPage_section_area_1 {
@@ -69,7 +69,7 @@
   margin-bottom: 15px;
 }
 .ProductDetailPage_section_area_2_code {
-  color: #6ebbb1;
+  color: #18b36a;
   padding-bottom: 10px;
 }
 .ProductDetailPage_section_area_2_rating_div {
@@ -170,8 +170,8 @@
   padding: 15px;
   border-radius: 10px;
   border: 0;
-  background: #6ebbb1;
-  color: #000000;
+  background: #18b36a;
+  color: #ffffff;
   font-weight: 500;
   width: 100%;
 }
@@ -262,7 +262,7 @@
 @media screen and (max-width: 999px) {
   .ProductDetailPage_section_area {
     display: flex;
-    margin-top: 2em;
+    /* margin-top: 2em; */
     position: relative;
     flex-direction: column;
   }

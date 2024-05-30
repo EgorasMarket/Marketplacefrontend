@@ -15,7 +15,7 @@
 .DashboardProdDiv_div1_cont1_active {
   max-width: 200px;
   width: 100%;
-  background: #6ebbb1;
+  background: #18b36a;
   padding: 1em;
   border-radius: 10px;
   display: flex;
@@ -77,7 +77,7 @@
   border: 0;
   font-weight: 500;
   font-size: 14px;
-  background: #6ebbb1;
+  background: #18b36a;
   color: #fff;
 }
 .DashboardProdDiv_body_cont1_details_txt_title {
@@ -182,7 +182,7 @@
     border: 0;
     font-weight: 500;
     font-size: 14px;
-    background: #6ebbb1;
+    background: #18b36a;
     color: #fff;
   }
 

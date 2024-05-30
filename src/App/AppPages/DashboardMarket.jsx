@@ -6,6 +6,8 @@ import {
   FETCH_PRODUCTS_BY_ID,
 } from "../../Services/ProductServices";
 import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
+import Blockies from "react-blockies";
+import { ShoppingCart02Icon } from "hugeicons-react";
 
 const DashboardMarket = () => {
   const [products, setProducts] = useState([]);
@@ -649,8 +651,23 @@ const DashboardMarket = () => {
                 />
               </div>
               <div className="dashboardMarketPlace_div1_body_conts_div1_title">
-                {data.product_name}
+                {data.product_name}{" "}
+                <div className="dashboardMarketPlace_div1_body_conts_div1_title_div2">
+                  <Blockies
+                    seed={data.user_wallet}
+                    size={8}
+                    scale={4}
+                    className="blockies_icona"
+                  />
+                  <span className="dashboardMarketPlace_div1_body_conts_div1_creator_span">
+                    {`${data.user_wallet.slice(
+                      0,
+                      4
+                    )}...${data.user_wallet.slice(39, 42)}`}
+                  </span>
+                </div>
               </div>
+
               <div className="dashboardMarketPlace_div1_body_conts_div1_amount">
                 <img
                   src="/img/egax_logo.png"
@@ -662,14 +679,12 @@ const DashboardMarket = () => {
                   EGAX
                 </span>
               </div>
-              <div className="dashboardMarketPlace_div1_body_conts_div1_creator">
-                Owner:{" "}
-                <span className="dashboardMarketPlace_div1_body_conts_div1_creator_span">
-                  {`${data.user_wallet.slice(0, 4)}...${data.user_wallet.slice(
-                    39,
-                    42
-                  )}`}
-                </span>
+              <div className="buyNow_div">
+                {" "}
+                <div className="buyNow_div_div1">View details</div>
+                <div className="buyNow_div_div2">
+                  <ShoppingCart02Icon className="buyNow_div_div_icon" />
+                </div>
               </div>
             </a>
           ))}

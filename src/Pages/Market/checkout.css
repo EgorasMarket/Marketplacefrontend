@@ -165,7 +165,7 @@
   padding: 15px;
   border-radius: 10px;
   border: 0;
-  background: #6ebbb1;
+  background: #18b36a;
   color: #000000;
   font-weight: 500;
 }
@@ -444,13 +444,13 @@
   font-size: 16px;
 }
 .successCheckoutDiv_cont_body_2_body_1_active {
-  border: solid 1px #6ebbb1;
+  border: solid 1px #18b36a;
 }
 .fill_delivery_div {
   display: flex;
   flex-direction: column;
   padding: 0em 1em;
-  border: solid 1px #6ebbb1;
+  border: solid 1px #18b36a;
   border-radius: 10px;
 }
 .fill_delivery_div_input {
@@ -515,7 +515,7 @@
   border: none;
   font-weight: 600;
   color: #fff;
-  background: #6ebbb1;
+  background: #18b36a;
 }
 .successModalDiv_cont_animation_icon2 {
   width: 150px;
@@ -539,7 +539,7 @@ input[type="radio"] {
 
 input[type="radio"]:checked + .successCheckoutDiv_cont_body_2_body_1:before {
   background-color: #1c6b41;
-  border-color: #6ebbb1;
+  border-color: #18b36a;
   /* padding: 2px; */
 }
 .pickupFromStoreDiv {
