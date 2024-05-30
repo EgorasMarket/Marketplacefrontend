@@ -52,7 +52,8 @@ const Home = () => {
                 <br /> EgoEarn
               </div>
               <div className="HomeDiv_section1_area_1_para">
-                Earn on the world's first purchase to earn platform.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis
+                eligendi aut, possimus fuga in perferendis.
               </div>
               <div className="HomeDiv_section1_area_1_btn_div">
                 <button className="HomeDiv_section1_area_1_btn">
