@@ -4,9 +4,10 @@
   overflow: hidden;
 }
 .HomeDiv_section1_container {
-  width: 100%;
+  width: -webkit-fill-available;
   max-width: 1400px;
   margin: auto;
+  padding: 0em 2em;
 }
 .HomeDiv_section1_area_1_title_span {
   color: #18b36c;
@@ -29,14 +30,15 @@
   color: #fff;
   line-height: 1.1;
   margin-bottom: 0.3em;
-  font-weight: 800;
+  font-weight: 700;
 }
 .HomeDiv_section1_area_1_para {
-  color: #b8b8b8;
+  color: #c9c9c9;
   font-size: 18px;
   margin-top: 10px;
-  width: 50%;
+  width: 40%;
   line-height: 1.5;
+  font-weight: 400;
 }
 .HomeDiv_section1_area_1_btn_div {
   margin-top: 4em;
@@ -101,7 +103,7 @@
 }
 .HomeDiv_section2_area_title {
   font-size: 42px;
-  font-weight: 800;
+  font-weight: 600;
   margin-bottom: 1em;
   display: flex;
   align-items: center;
@@ -332,4 +334,256 @@
   font-weight: 500;
   background: #fff;
   color: #000;
+}
+@media screen and (max-width: 1300px) {
+  .HomeDiv_section1_area_2 {
+    width: 600px;
+    padding: 2em 2em;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .HomeDiv_section1_area_1_title {
+    font-size: 68px;
+  }
+  .HomeDiv_section1_area_1_para {
+    font-size: 16px;
+    margin-top: 10px;
+    width: 45%;
+  }
+  .HomeDiv_section1_area_1_btn_div {
+    margin-top: 3em;
+  }
+  .HomeDiv_section1_area_1 {
+    margin-top: 1em;
+  }
+  .dashboardMarketPlace_div1_body_conts_div1_img_div {
+    height: 200px;
+  }
+  .HomeDiv_section3_div2_cont1_title {
+    margin-bottom: 0.5em;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .HomeDiv_section2 {
+    padding: 4em 0em;
+    position: relative;
+  }
+  .HomeDiv_section4 {
+    position: relative;
+    padding: 4em 0;
+  }
+  .HomeDiv_section5 {
+    padding: 4em 0em;
+  }
+  .HomeDiv_section5_area_2_para {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 2em;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .HomeDiv_section1_area_2_card1_img {
+    height: 300px;
+  }
+  .HomeDiv_section1_area_2 {
+    padding: 2em 2em;
+    height: 270px;
+    left: -4%;
+    width: 100%;
+    bottom: 0%;
+  }
+  .HomeDiv_section1_area_1 {
+    margin-top: 0;
+    margin-bottom: 16em;
+    padding-top: 4em;
+  }
+  .HomeDiv_section1_area_1_para {
+    width: 60%;
+  }
+  .HomeDiv_section2_area_body {
+    display: grid;
+    gap: 20px 20px;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: flex-start;
+  }
+  .HomeDiv_section5_area_2_title {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .HomeDiv_section5_area_2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 1em;
+  }
+  .HomeDiv_section5_area {
+    flex-direction: column-reverse;
+  }
+  .HomeDiv_section5_area_2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+  }
+  .HomeDiv_section5_area_2_para {
+    width: 50%;
+  }
+  .HomeDiv_section4_title {
+    font-weight: 600;
+  }
+  .HomeDiv_section3_div2 {
+    display: flex;
+    justify-content: space-between;
+    background: #000;
+    padding: 4em;
+    width: -webkit-fill-available;
+    border-radius: 20px;
+    overflow: hidden;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .HomeDiv_section3_div2_cont2 {
+    width: 50%;
+    margin-right: 0;
+    margin-top: 2em;
+  }
+  .HomeDiv_section3_div2_cont1_title {
+    font-size: 58px;
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  .HomeDiv_section3_div2_cont1_title {
+    font-size: 58px;
+    font-weight: 600;
+    width: 100%;
+  }
+  .HomeDiv_section3_div2_cont1 {
+    margin-bottom: 2em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .HomeDiv_section1_area_1_para {
+    width: 100%;
+  }
+  .HomeDiv_section5_area_2_para {
+    width: 100%;
+  }
+  .HomeDiv_section5_area_1_img {
+    width: 70%;
+  }
+  .HomeDiv_section3_div2_cont2 {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .HomeDiv_section4_area_body {
+    display: grid;
+    gap: 20px 20px;
+    /* width: 80%; */
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    justify-content: flex-start;
+  }
+  .HomeDiv_section2_area_body {
+    display: grid;
+    gap: 10px;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: flex-start;
+  }
+  .dashboardMarketPlace_div1_body_conts_div1_img {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 0.5em;
+  }
+  .HomeDiv_section1_area_2 {
+    left: -6%;
+    overflow: hidden;
+  }
+  .HomeDiv_section1_area_1_title {
+    font-size: 48px;
+  }
+  .HomeDiv_section5_area_2_title {
+    width: 100%;
+    font-size: 48px;
+  }
+  .HomeDiv_section3_div2 {
+    padding: 3em;
+  }
+  .HomeDiv_section3_div2_cont1_title {
+    font-size: 48px;
+    font-weight: 600;
+    width: 100%;
+  }
+  .HomeDiv_section3_div2_cont2 {
+    width: 80%;
+  }
+  .HomeDiv_section5_area_1 {
+    margin-top: 2em;
+  }
+  .HomeDiv_section4_area_body_cont1 {
+    height: 250px;
+  }
+  .HomeDiv_section3 {
+    padding: 2em 0em;
+    background: #fff;
+  }
+  .HomeDiv_section2_area_body
+    .dashboardMarketPlace_div1_body_conts_div1
+    .dashboardMarketPlace_div1_body_conts_div1_title {
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: 400;
+    padding-bottom: 0em;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: none;
+    padding-bottom: 10px;
+    font-weight: 700;
+  }
+  .HomeDiv_section2_area_body
+    .dashboardMarketPlace_div1_body_conts_div1
+    .dashboardMarketPlace_div1_body_conts_div1_amount {
+    padding: 10px;
+    display: flex;
+    align-items: baseline;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .dashboardMarketPlace_div1_body_conts_div1_amount
+    .dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img {
+    width: 16px;
+    margin-right: 5px;
+    /* margin-bottom: -9px; */
+  }
+  .HomeDiv_section1_container {
+    width: -webkit-fill-available;
+    max-width: 1400px;
+    margin: auto;
+    padding: 0em 1em;
+  }
+  .HomeDiv_section2_area_title {
+    font-size: 32px;
+    font-weight: 600;
+  }
+  .HomeDiv_section4_title {
+    font-weight: 600;
+    font-size: 32px;
+  }
+  .HomeDiv_section5 {
+    padding: 4em 0em;
+    padding-top: 2em;
+  }
+}
+@media screen and (max-width: 500px) {
+  .HomeDiv_section3_div2 {
+    padding: 3em 2em;
+  }
 }

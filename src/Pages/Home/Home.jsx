@@ -3,6 +3,9 @@ import "./Home.css";
 import Marquee from "react-fast-marquee";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow, Pagination } from "swiper";
+import { Globe02Icon, UserIcon } from "hugeicons-react";
+import { Coins01Icon } from "hugeicons-react";
+
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.css";
 import "swiper/swiper-bundle.min.css";
@@ -53,15 +56,16 @@ const Home = () => {
                 <br /> EgoEarn
               </div>
               <div className="HomeDiv_section1_area_1_para">
-                Discover Egoras' Diverse Tokenized Product Ecosystem: Explore
-                Smart TVs, Electric Vehicles, Tricycles, and More. Securely
-                Purchase Products, Receive Physical Goods, and Earn Rewards by
-                Staking the Associated NFTs.
+                Explore Egoras' diverse tokenized products: smart TVs, electric
+                vehicles, tricycles, and more. Securely purchase, receive
+                physical goods, and earn rewards by staking associated NFTs.
               </div>
               <div className="HomeDiv_section1_area_1_btn_div">
-                <button className="HomeDiv_section1_area_1_btn">
-                  Get started
-                </button>
+                <a href="/register">
+                  <button className="HomeDiv_section1_area_1_btn">
+                    Get started
+                  </button>
+                </a>
               </div>
             </div>
             <div className="HomeDiv_section1_area_2">
@@ -89,7 +93,7 @@ const Home = () => {
                 <SwiperSlide>
                   <div className="HomeDiv_section1_area_2_card1">
                     <img
-                      src="/img/marketImgs/tesla_car_hero_dummy.jpeg"
+                      src="/img/car_img.jpeg"
                       alt=""
                       className="HomeDiv_section1_area_2_card1_img"
                     />
@@ -98,7 +102,7 @@ const Home = () => {
                 <SwiperSlide>
                   <div className="HomeDiv_section1_area_2_card1">
                     <img
-                      src="/img/marketImgs/tesla_car_hero_dummy.jpeg"
+                      src="/img/car_img.jpeg"
                       alt=""
                       className="HomeDiv_section1_area_2_card1_img"
                     />
@@ -107,7 +111,7 @@ const Home = () => {
                 <SwiperSlide>
                   <div className="HomeDiv_section1_area_2_card1">
                     <img
-                      src="/img/marketImgs/tesla_car_hero_dummy.jpeg"
+                      src="/img/3D7A4033.jpeg"
                       alt=""
                       className="HomeDiv_section1_area_2_card1_img"
                     />
@@ -116,7 +120,7 @@ const Home = () => {
                 <SwiperSlide>
                   <div className="HomeDiv_section1_area_2_card1">
                     <img
-                      src="/img/marketImgs/tesla_car_hero_dummy.jpeg"
+                      src="/img/3D7A4033.jpeg"
                       alt=""
                       className="HomeDiv_section1_area_2_card1_img"
                     />
@@ -137,9 +141,11 @@ const Home = () => {
           <div className="HomeDiv_section2_area">
             <div className="HomeDiv_section2_area_title">
               Top Collections{" "}
-              <button className="HomeDiv_section2_area_title_btn">
-                View More
-              </button>{" "}
+              <a href="/app/market">
+                <button className="HomeDiv_section2_area_title_btn">
+                  View More
+                </button>{" "}
+              </a>
             </div>
             <div className="HomeDiv_section2_area_body">
               {products.map((data) => (
@@ -157,7 +163,11 @@ const Home = () => {
                     />
                   </div>
                   <div className="dashboardMarketPlace_div1_body_conts_div1_title">
-                    {data.product_name}{" "}
+                    <div className="dashboardMarketPlace_div1_body_conts_div1_title_txt">
+                      {" "}
+                      {data.product_name}{" "}
+                    </div>
+
                     <div className="dashboardMarketPlace_div1_body_conts_div1_title_div2">
                       <Blockies
                         seed={data.user_wallet}
@@ -209,7 +219,10 @@ const Home = () => {
             <div className="HomeDiv_section4_title">How to Earn</div>
             <div className="HomeDiv_section4_area_body">
               <div className="HomeDiv_section4_area_body_cont1">
-                <LogoutSquare02Icon className="HomeDiv_section4_area_body_cont1_icon" />
+                <UserIcon
+                  size={42}
+                  className="HomeDiv_section4_area_body_cont1_icon"
+                />
                 <div className="HomeDiv_section4_area_body_cont1_txts">
                   <div className="HomeDiv_section4_area_body_cont1_title">
                     Create an Account
@@ -219,7 +232,7 @@ const Home = () => {
                   </div>
                 </div>
                 <ArrowUpRight01Icon
-                  size={42}
+                  size={32}
                   className="HomeDiv_section4_area_body_cont1_txts_icon"
                 />
                 {/* <button className="HomeDiv_section4_area_body_cont1_btn">
@@ -227,7 +240,10 @@ const Home = () => {
                 </button> */}
               </div>
               <div className="HomeDiv_section4_area_body_cont1">
-                <LogoutSquare02Icon className="HomeDiv_section4_area_body_cont1_icon" />
+                <Globe02Icon
+                  size={42}
+                  className="HomeDiv_section4_area_body_cont1_icon"
+                />
                 <div className="HomeDiv_section4_area_body_cont1_txts">
                   <div className="HomeDiv_section4_area_body_cont1_title">
                     Explore
@@ -238,7 +254,7 @@ const Home = () => {
                   </div>
                 </div>
                 <ArrowUpRight01Icon
-                  size={42}
+                  size={32}
                   className="HomeDiv_section4_area_body_cont1_txts_icon"
                 />
                 {/* <button className="HomeDiv_section4_area_body_cont1_btn">
@@ -246,7 +262,10 @@ const Home = () => {
                 </button> */}
               </div>
               <div className="HomeDiv_section4_area_body_cont1">
-                <LogoutSquare02Icon className="HomeDiv_section4_area_body_cont1_icon" />
+                <ShoppingCart02Icon
+                  size={42}
+                  className="HomeDiv_section4_area_body_cont1_icon"
+                />
                 <div className="HomeDiv_section4_area_body_cont1_txts">
                   <div className="HomeDiv_section4_area_body_cont1_title">
                     Purchase
@@ -257,7 +276,7 @@ const Home = () => {
                   </div>
                 </div>
                 <ArrowUpRight01Icon
-                  size={42}
+                  size={32}
                   className="HomeDiv_section4_area_body_cont1_txts_icon"
                 />
                 {/* <button className="HomeDiv_section4_area_body_cont1_btn">
@@ -265,7 +284,10 @@ const Home = () => {
                 </button> */}
               </div>
               <div className="HomeDiv_section4_area_body_cont1">
-                <LogoutSquare02Icon className="HomeDiv_section4_area_body_cont1_icon" />
+                <Coins01Icon
+                  size={42}
+                  className="HomeDiv_section4_area_body_cont1_icon"
+                />
                 <div className="HomeDiv_section4_area_body_cont1_txts">
                   <div className="HomeDiv_section4_area_body_cont1_title">
                     Earn
@@ -275,7 +297,7 @@ const Home = () => {
                   </div>
                 </div>
                 <ArrowUpRight01Icon
-                  size={42}
+                  size={32}
                   className="HomeDiv_section4_area_body_cont1_txts_icon"
                 />
                 {/* <button className="HomeDiv_section4_area_body_cont1_btn">
@@ -297,7 +319,7 @@ const Home = () => {
           <div className="HomeDiv_section5_area">
             <div className="HomeDiv_section5_area_1">
               <img
-                src="/img/coin_3d.svg"
+                src="/img/coin_3d.png"
                 alt=""
                 className="HomeDiv_section5_area_1_img"
               />
@@ -312,11 +334,13 @@ const Home = () => {
               </div>
               <div className="HomeDiv_section5_area_2_para">
                 Effortlessly stake your NFTs on EgoEarn to earn daily rewards in
-                $EGAX.
+                EGAX.
               </div>
-              <button className="HomeDiv_section5_area_2_btn">
-                View marketplace
-              </button>
+              <a href="/app/market">
+                <button className="HomeDiv_section5_area_2_btn">
+                  View marketplace
+                </button>
+              </a>
             </div>
           </div>
         </div>
@@ -343,7 +367,7 @@ const Home = () => {
             <div className="HomeDiv_section3_div2_cont2">
               <div className="HomeDiv_section3_div2_cont2_cont">
                 <img
-                  src="/img/nft_dummy_img.webp"
+                  src="/img/nft_dummy_img.jpeg"
                   alt=""
                   className="HomeDiv_section3_div2_cont2_img"
                 />

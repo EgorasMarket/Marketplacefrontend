@@ -1,11 +1,11 @@
 .footer_div {
-  padding: 4em 0em;
+  padding: 2em 0em;
   position: relative;
   color: #fff;
 }
 
 .footer_container {
-  width: 100%;
+  width: -webkit-fill-available;
   max-width: 1400px;
   margin: auto;
   padding: 0 1em;
@@ -36,4 +36,19 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media screen and (max-width: 650px) {
+  .footer_div {
+    padding: 1em 0em;
+    position: relative;
+    color: #fff;
+  }
+  .footer_div_area_1 {
+    padding: 0.5em 0;
+    justify-content: flex-start;
+  }
+
+  .footer_div_area_2 {
+    justify-content: flex-start;
+  }
 }
