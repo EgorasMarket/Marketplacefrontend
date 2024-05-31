@@ -20,7 +20,7 @@ import { ArrowUpRight01Icon } from "hugeicons-react";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const { data: getProducts } = useQuery({
-    queryKey: "getProducts",
+    queryKey: ["getProducts"],
     queryFn: async () => {
       const res = await FETCH_PRODUCTS();
       console.log("====================================");

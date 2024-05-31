@@ -12,7 +12,7 @@ import { ShoppingCart02Icon } from "hugeicons-react";
 const DashboardMarket = () => {
   const [products, setProducts] = useState([]);
   const { data: getProducts } = useQuery({
-    queryKey: "getProducts",
+    queryKey: ["getProducts"],
     queryFn: async () => {
       const res = await FETCH_PRODUCTS();
       console.log("====================================");

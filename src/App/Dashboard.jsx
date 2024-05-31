@@ -45,7 +45,9 @@ const Dashboard = () => {
       }
     });
   };
-  if (user === null && loading === false) return navigate("/login");
+
+  if (user === null && loading === false)
+    return (window.location.href = "/login");
   return (
     <div className="event_div">
       {" "}

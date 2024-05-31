@@ -69,7 +69,7 @@ const DashboardWallets = () => {
     setWithdrawMoneyUSD(!withdrawMoneyUSD);
   };
   const { data: userBalance, isPending: balancePending } = useQuery({
-    queryKey: "userBalance",
+    queryKey: ["userBalance"],
     queryFn: async () => {
       const res = await USER_BALANCE();
       console.log("====================================");
@@ -85,15 +85,15 @@ const DashboardWallets = () => {
       return res;
     },
   });
-  const userBalFunc = async () => {
-    await userBalance();
-  };
-  useEffect(() => {
-    userBalFunc();
-  }, []);
+  // const userBalFunc = async () => {
+  //   await userBalance();
+  // };
+  // useEffect(() => {
+  //   userBalFunc();
+  // }, []);
 
   const { data: getTransaction, isPending: getTransactionLoding } = useQuery({
-    queryKey: "transaction",
+    queryKey: ["transaction"],
     queryFn: async () => {
       const res = await TRANSACTIONS();
       console.log("====================================");
@@ -106,12 +106,12 @@ const DashboardWallets = () => {
       return res;
     },
   });
-  const transactionFunc = async () => {
-    await getTransaction();
-  };
-  useEffect(() => {
-    transactionFunc();
-  }, []);
+  // const transactionFunc = async () => {
+  //   await getTransaction();
+  // };
+  // useEffect(() => {
+  //   transactionFunc();
+  // }, []);
   return (
     <div className="DashboardWalletsDiv">
       <div className="DashboardWalletsDiv_body">

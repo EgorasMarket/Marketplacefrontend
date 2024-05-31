@@ -54,7 +54,7 @@ const DashboardHome = () => {
     isError: isDashError,
     error: dashError,
   } = useQuery({
-    queryKey: "dash_data",
+    queryKey: ["dash_data"],
     queryFn: async () => {
       const res = await FETCH_DASHBOARD_DATA();
       console.log("====================================");
@@ -73,7 +73,7 @@ const DashboardHome = () => {
     isError: isGraphError,
     error: graphError,
   } = useQuery({
-    queryKey: "graph_data",
+    queryKey: ["graph_data"],
     queryFn: async () => {
       const res = await FETCH_STAKE_POOL_DATA();
       console.log("====================================");
@@ -110,7 +110,7 @@ const DashboardHome = () => {
     isError: isReferralError,
     error: referralError,
   } = useQuery({
-    queryKey: "refer_data",
+    queryKey: ["refer_data"],
     queryFn: async () => {
       const res = await FETCH_REFERRAL_DATA();
       console.log("====================================");
@@ -144,7 +144,7 @@ const DashboardHome = () => {
   };
 
   const { data: getTransaction, isPending: getTransactionLoding } = useQuery({
-    queryKey: "transaction",
+    queryKey: ["transaction"],
     queryFn: async () => {
       const res = await TRANSACTIONS();
       console.log("====================================");

@@ -12,7 +12,7 @@ const DashboardTransactions = () => {
   const [transaction, setTransaction] = useState([]);
 
   const { data: getTransaction, isPending: getTransactionLoding } = useQuery({
-    queryKey: "transaction",
+    queryKey: ["transaction"],
     queryFn: async () => {
       const res = await TRANSACTIONS();
       console.log("====================================");

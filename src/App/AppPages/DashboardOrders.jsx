@@ -24,7 +24,7 @@ const DashboardOrders = () => {
   //
 
   const { data: getProducts, isPending } = useQuery({
-    queryKey: "getProducts",
+    queryKey: ["getProducts"],
     queryFn: async () => {
       const res = await FETCH_ALL_ORDERS();
       console.log("====================================");
