@@ -390,193 +390,188 @@ const ProductDetailPage = () => {
   return (
     <div className="ProductDetailPage_div">
       <section className="ProductDetailPage_section">
-        <div className="custom_container">
-          <div className="ProductDetailPage_section_area">
-            <div className="ProductDetailPage_section_area_1">
-              <img
-                src={payload.product_images}
-                className="ProductDetailPage_section_area_1Swiper_slide_img"
-              />
+        <div className="ProductDetailPage_section_area">
+          <div className="ProductDetailPage_section_area_1">
+            <img
+              src={payload.product_images}
+              className="ProductDetailPage_section_area_1Swiper_slide_img"
+            />
+          </div>
+          {/* ========= */}
+          {/* ========= */}
+          {/* ========= */}
+          {/* ========= */}
+          {/* ========= */}
+          <div className="ProductDetailPage_section_area_2">
+            <div className="ProductDetailPage_section_area_2_title">
+              {payload.product_name}
             </div>
-            {/* ========= */}
-            {/* ========= */}
-            {/* ========= */}
-            {/* ========= */}
-            {/* ========= */}
-            <div className="ProductDetailPage_section_area_2">
-              <div className="ProductDetailPage_section_area_2_title">
-                {payload.product_name}
+            {/* ===== */}
+            {/* ===== */}
+            {/* ===== */}
+            {/* ===== */}
+            <div className="ProductDetailPage_section_area_2_code">
+              Nft ID:{" "}
+              <span className="ProductDetailPage_section_area_2_code_span">
+                #{payload.product_id}
+              </span>{" "}
+            </div>
+            {/* ===== */}
+            {/* ===== */}
+            {/* ===== */}
+            {/* ===== */}
+            <div className="ProductDetailPage_section_area_2_rating_div">
+              <Rating initialValue={"4"} readonly={true} />{" "}
+              <span className="ProductDetailPage_section_area_2_rating_div_span">
+                4.0
+              </span>
+            </div>
+            {/* ===== */}
+            {/* ===== */}
+            {/* ===== */}
+            {/* ===== */}
+            <div className="ProductDetailPage_section_area_2_count">
+              <div className="ProductDetailPage_section_area_2_count_div">
+                <button
+                  className="ProductDetailPage_section_area_2_count_div_subtract"
+                  onClick={subtractCount}
+                  disabled={subDisable}
+                >
+                  _
+                </button>
+                <input
+                  type="number"
+                  value={count}
+                  onChange={countChange}
+                  className="ProductDetailPage_section_area_2_count_div_input"
+                />
+                <button
+                  className="ProductDetailPage_section_area_2_count_div_add"
+                  onClick={addCount}
+                  disabled={addDisable}
+                >
+                  +
+                </button>
               </div>
-              {/* ===== */}
-              {/* ===== */}
-              {/* ===== */}
-              {/* ===== */}
-              <div className="ProductDetailPage_section_area_2_code">
-                Nft ID:{" "}
-                <span className="ProductDetailPage_section_area_2_code_span">
-                  #{payload.product_id}
-                </span>{" "}
-              </div>
-              {/* ===== */}
-              {/* ===== */}
-              {/* ===== */}
-              {/* ===== */}
-              <div className="ProductDetailPage_section_area_2_rating_div">
-                <Rating initialValue={"4"} readonly={true} />{" "}
-                <span className="ProductDetailPage_section_area_2_rating_div_span">
-                  4.0
+              <div className="ProductDetailPage_section_area_2_count_quant_div">
+                Quantity:{" "}
+                <span className="ProductDetailPage_section_area_2_count_quant_div_span">
+                  {payload.quantity}
                 </span>
               </div>
-              {/* ===== */}
-              {/* ===== */}
-              {/* ===== */}
-              {/* ===== */}
-              <div className="ProductDetailPage_section_area_2_count">
-                <div className="ProductDetailPage_section_area_2_count_div">
-                  <button
-                    className="ProductDetailPage_section_area_2_count_div_subtract"
-                    onClick={subtractCount}
-                    disabled={subDisable}
-                  >
-                    _
-                  </button>
-                  <input
-                    type="number"
-                    value={count}
-                    onChange={countChange}
-                    className="ProductDetailPage_section_area_2_count_div_input"
-                  />
-                  <button
-                    className="ProductDetailPage_section_area_2_count_div_add"
-                    onClick={addCount}
-                    disabled={addDisable}
-                  >
-                    +
-                  </button>
-                </div>
-                <div className="ProductDetailPage_section_area_2_count_quant_div">
-                  Quantity:{" "}
-                  <span className="ProductDetailPage_section_area_2_count_quant_div_span">
-                    {payload.quantity}
-                  </span>
-                </div>
-              </div>
-              {/* ===== */}
-              {/* ===== */}
-              {/* ===== */}
-              {/* ===== */}
-              <div className="ProductDetailPage_section_area_2_amount">
-                {/* <img
+            </div>
+            {/* ===== */}
+            {/* ===== */}
+            {/* ===== */}
+            {/* ===== */}
+            <div className="ProductDetailPage_section_area_2_amount">
+              {/* <img
                   src="/img/egax_logo.png"
                   alt=""
                   className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img" */}
-                {numberWithCommas(
-                  parseFloat(count * payload.amount).toFixed(2)
-                )}{" "}
-                EGAX
+              {numberWithCommas(parseFloat(count * payload.amount).toFixed(2))}{" "}
+              EGAX
+            </div>
+            {/* ===== */}
+            {/* ===== */}
+            {/* ===== */}
+            {/* ===== */}
+            <div className="ProductDetailPage_section_area_2_tec_div">
+              <div className="ProductDetailPage_section_area_2_tec_div_title">
+                Specification
               </div>
-              {/* ===== */}
-              {/* ===== */}
-              {/* ===== */}
-              {/* ===== */}
-              <div className="ProductDetailPage_section_area_2_tec_div">
-                <div className="ProductDetailPage_section_area_2_tec_div_title">
-                  Specification
-                </div>
-                <div className="ProductDetailPage_section_area_2_tec_div_body">
-                  {specifications.map((data, index) => {
-                    let val = data.split(":");
-                    return (
-                      <div className="ProductDetailPage_section_area_2_tec_div_body_1">
-                        <div className="ProductDetailPage_section_area_2_tec_div_body_1_title">
-                          {val[0]}
-                        </div>
-                        <div className="ProductDetailPage_section_area_2_tec_div_body_1_para">
-                          {val[1]}
-                        </div>
+              <div className="ProductDetailPage_section_area_2_tec_div_body">
+                {specifications.map((data, index) => {
+                  let val = data.split(":");
+                  return (
+                    <div className="ProductDetailPage_section_area_2_tec_div_body_1">
+                      <div className="ProductDetailPage_section_area_2_tec_div_body_1_title">
+                        {val[0]}
                       </div>
-                    );
-                  })}
+                      <div className="ProductDetailPage_section_area_2_tec_div_body_1_para">
+                        {val[1]}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            {/* ===== */}
+            {/* ===== */}
+            {/* ===== */}
+            {/* ===== */}
+            <div className="ProductDetailPage_section_area_2_tec_div">
+              <div className="ProductDetailPage_section_area_2_tec_div_title">
+                Description
+              </div>
+              <div className="ProductDetailPage_section_area_2_tec_div_body_description">
+                {payload.product_specifications}
+              </div>
+            </div>
+            {/* ===== */}
+            {/* ===== */}
+            {/* ===== */}
+            <div className="ProductDetailPage_section_area_2_warranty_div">
+              Max 6months Warranty
+            </div>
+            {/* ===== */}
+            {/* ===== */}
+            {/* ===== */}
+            <div className="ProductDetailPage_section_area_2_total_div">
+              <div className="ProductDetailPage_section_area_2_total_div_1">
+                <div className="ProductDetailPage_section_area_2_total_div_1_title">
+                  Quantity
+                </div>
+                <div className="ProductDetailPage_section_area_2_total_div_1_para">
+                  {count}
                 </div>
               </div>
-              {/* ===== */}
-              {/* ===== */}
-              {/* ===== */}
-              {/* ===== */}
-              <div className="ProductDetailPage_section_area_2_tec_div">
-                <div className="ProductDetailPage_section_area_2_tec_div_title">
-                  Description
+              <div className="ProductDetailPage_section_area_2_total_div_1">
+                <div className="ProductDetailPage_section_area_2_total_div_1_title">
+                  Unit Amount
                 </div>
-                <div className="ProductDetailPage_section_area_2_tec_div_body_description">
-                  {payload.product_specifications}
+                <div className="ProductDetailPage_section_area_2_total_div_1_para">
+                  <img
+                    src="/img/egax_logo.png"
+                    alt=""
+                    className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
+                  />{" "}
+                  {numberWithCommas(parseFloat(payload.amount).toFixed(2))} EGAX
                 </div>
               </div>
-              {/* ===== */}
-              {/* ===== */}
-              {/* ===== */}
-              <div className="ProductDetailPage_section_area_2_warranty_div">
-                Max 6months Warranty
+              <div className="ProductDetailPage_section_area_2_total_div_1">
+                <div className="ProductDetailPage_section_area_2_total_div_1_title">
+                  Total
+                </div>
+                <div className="ProductDetailPage_section_area_2_total_div_1_para">
+                  <img
+                    src="/img/egax_logo.png"
+                    alt=""
+                    className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
+                  />{" "}
+                  {numberWithCommas(
+                    parseFloat(count * payload.amount).toFixed(2)
+                  )}{" "}
+                  EGAX
+                </div>
               </div>
-              {/* ===== */}
-              {/* ===== */}
-              {/* ===== */}
-              <div className="ProductDetailPage_section_area_2_total_div">
-                <div className="ProductDetailPage_section_area_2_total_div_1">
-                  <div className="ProductDetailPage_section_area_2_total_div_1_title">
-                    Quantity
-                  </div>
-                  <div className="ProductDetailPage_section_area_2_total_div_1_para">
-                    {count}
-                  </div>
-                </div>
-                <div className="ProductDetailPage_section_area_2_total_div_1">
-                  <div className="ProductDetailPage_section_area_2_total_div_1_title">
-                    Unit Amount
-                  </div>
-                  <div className="ProductDetailPage_section_area_2_total_div_1_para">
-                    <img
-                      src="/img/egax_logo.png"
-                      alt=""
-                      className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
-                    />{" "}
-                    {numberWithCommas(parseFloat(payload.amount).toFixed(2))}{" "}
-                    EGAX
-                  </div>
-                </div>
-                <div className="ProductDetailPage_section_area_2_total_div_1">
-                  <div className="ProductDetailPage_section_area_2_total_div_1_title">
-                    Total
-                  </div>
-                  <div className="ProductDetailPage_section_area_2_total_div_1_para">
-                    <img
-                      src="/img/egax_logo.png"
-                      alt=""
-                      className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
-                    />{" "}
-                    {numberWithCommas(
-                      parseFloat(count * payload.amount).toFixed(2)
-                    )}{" "}
-                    EGAX
-                  </div>
-                </div>
-                {productQuantity < 0 ? (
-                  <button
-                    className="ProductDetailPage_section_area_2_total_div_btn"
-                    disabled
-                  >
-                    Out Of Stock
+              {productQuantity < 0 ? (
+                <button
+                  className="ProductDetailPage_section_area_2_total_div_btn"
+                  disabled
+                >
+                  Out Of Stock
+                </button>
+              ) : (
+                <a
+                  href={`/app/market/product/detail/${payload.id}/${count}/${payload.product_name}/checkout`}
+                  className="ProductDetailPage_section_area_2_total_div_btn_link"
+                >
+                  <button className="ProductDetailPage_section_area_2_total_div_btn">
+                    Proceed to Paymnet
                   </button>
-                ) : (
-                  <a
-                    href={`/app/market/product/detail/${payload.id}/${count}/${payload.product_name}/checkout`}
-                    className="ProductDetailPage_section_area_2_total_div_btn_link"
-                  >
-                    <button className="ProductDetailPage_section_area_2_total_div_btn">
-                      Proceed to Paymnet
-                    </button>
-                  </a>
-                )}
-              </div>
+                </a>
+              )}
             </div>
           </div>
         </div>

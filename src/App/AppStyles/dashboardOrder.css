@@ -21,6 +21,7 @@
   flex-direction: column;
   animation: zoomOutCustom2;
   animation-duration: 0.5s;
+  padding-bottom: 8em;
 }
 .dashboard_order_detail_body_1Swiper_slide_img {
   width: 100%;

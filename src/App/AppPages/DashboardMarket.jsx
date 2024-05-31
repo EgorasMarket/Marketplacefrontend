@@ -651,7 +651,9 @@ const DashboardMarket = () => {
                 />
               </div>
               <div className="dashboardMarketPlace_div1_body_conts_div1_title">
-                {data.product_name}{" "}
+                <div className="dashboardMarketPlace_div1_body_conts_div1_title_txt">
+                  {data.product_name}{" "}
+                </div>
                 <div className="dashboardMarketPlace_div1_body_conts_div1_title_div2">
                   <Blockies
                     seed={data.user_wallet}

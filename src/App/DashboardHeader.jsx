@@ -9,6 +9,7 @@ import { Notification03Icon } from "hugeicons-react";
 import { Copy01Icon } from "hugeicons-react";
 import getUserInfo from "../helper/userhelper";
 import { useUser } from "../hooks/useUser";
+import { Link } from "react-router-dom";
 import { getUserMainInfo } from "../hooks/useGetUserInfo";
 import { useQueryClient } from "@tanstack/react-query";
 import { QUERY_KEY } from "../constants/queryKeys";
@@ -142,9 +143,9 @@ const DashboardHeader = ({ routes, activeRoute }) => {
           </div>
         </div>
         <div className="DashboardHeader_area_2">
-          <div className="DashboardHeader_area_2_cont1">
+          {/* <div className="DashboardHeader_area_2_cont1">
             <Notification03Icon className="DashboardHeader_area_2_cont1_icon" />
-          </div>
+          </div> */}
           <div className="wallet_address_header_Div">
             {/* {`${getUserInfo()?.wallet_address.slice( */}
             {`${getUserMainInfo()?.wallet_address.slice(

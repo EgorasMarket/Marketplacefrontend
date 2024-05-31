@@ -140,7 +140,7 @@
   margin-right: 10px;
   padding: 10px;
   border-radius: 10px;
-  color: #000000;
+  color: #ffffff;
   font-weight: 500;
   cursor: pointer;
   font-size: 14px;
@@ -549,17 +549,17 @@
     font-size: 14px;
   }
   .DashboardWalletsDiv_area2_cont2_area2_cont1 {
-    padding: 8px;
+    padding: 12px;
     border-radius: 7px;
     font-size: 12px;
   }
   .DashboardWalletsDiv_area2_cont2_area2_cont2 {
-    padding: 8px;
+    padding: 12px;
     border-radius: 7px;
     font-size: 12px;
   }
   .DashboardWalletsDiv_area2_cont2_area2_cont2b {
-    padding: 8px;
+    padding: 12px;
     border-radius: 7px;
     font-size: 12px;
   }

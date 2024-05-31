@@ -166,7 +166,7 @@
   border-radius: 10px;
   border: 0;
   background: #18b36a;
-  color: #000000;
+  color: #ffffff;
   font-weight: 500;
 }
 .ProductCheckoutPage_div_section_area_1_area3_body {
@@ -603,7 +603,7 @@ input[type="radio"]:checked + .successCheckoutDiv_cont_body_2_body_1:before {
 }
 @media screen and (max-width: 600px) {
   .ProductCheckoutPage_div_section_area_1_area3_body {
-    padding: 1em;
+    padding: 1em 0em;
   }
   .ProductCheckoutPage_div_section_area_1_area3_body_card1_cont1_div1_bal {
     font-size: 28px;

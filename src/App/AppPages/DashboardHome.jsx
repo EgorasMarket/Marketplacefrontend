@@ -41,10 +41,13 @@ const DashboardHome = () => {
   const [LastArray2, setLastArray2] = useState(0);
   const [lastIndex2, setlastIndex2] = useState(0);
   const [transaction, setTransaction] = useState([]);
-  const [dashData, setDashData] = useState({});
+  const [dashData, setDashData] = useState({
+    amount_earned: 0,
+    products_bought: 0,
+  });
   const [referralCount, setReferralCount] = useState(0);
   const [refEarn, setRefEarn] = useState(0);
-
+  console.log(dashData);
   const {
     data: dashInfo,
     isPending: isDashLoading,
@@ -57,7 +60,10 @@ const DashboardHome = () => {
       console.log("====================================");
       console.log(res);
       console.log(res);
-      setDashData(res.data);
+      if (res.data !== null) {
+        setDashData(res.data);
+        return;
+      }
       return res;
     },
   });
@@ -73,9 +79,10 @@ const DashboardHome = () => {
       console.log("====================================");
       console.log(res);
       console.log(res, "graph data");
+
       if (res.data.stakeData.length !== 0) {
         const myArray = res.data.stakeData;
-        myArray.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        myArray.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
         console.log(myArray);
         const reversed = myArray
           .slice()
@@ -84,47 +91,19 @@ const DashboardHome = () => {
             return data;
           });
         const temp = reversed;
-        for (const data of temp) {
-          const date = new Date(data.updatedAt);
-          const day = date.getUTCDate().toString().padStart(2, "0");
-          const month = (date.getUTCMonth() + 1).toString().padStart(2, "0");
-          const year = date.getUTCFullYear();
-          const formattedDated = `${day}/${month}/${year}`;
-          const dateString = formattedDated;
-          const dateParts = dateString.split("/");
-          const dateObj = new Date(
-            dateParts[2],
-            dateParts[1] - 1,
-            dateParts[0]
-          );
-          // format the date using toLocaleDateString()
-          const formattedDate = dateObj.toLocaleDateString("en-US", {
-            month: "short",
-            day: "2-digit",
-            year: "numeric",
-          });
-          data.timestamp = formattedDate;
-          data.month = getMonthFromNumber(data.month);
-        }
-        console.log(reversed);
-        const totalValue = reversed.reduce((accumulator, currentValue) => {
-          console.log(accumulator, currentValue);
-          return accumulator + currentValue.value;
-        }, 0);
-        console.log(totalValue);
-        setTradeVolume(parseInt(totalValue).toFixed(2));
-        console.log(temp);
-        setGraphData(() => temp);
+
         setlastIndex2(temp.length - 1);
         setLastArray2(temp[temp.length - 1]);
         setChartValue2(() => temp[temp.length - 1].value);
         setChartTime2(() => temp[temp.length - 1].timestamp);
+        setGraphData(() => temp);
+        console.log(temp);
         return;
       }
-      // setGraphData(res.data.stakeData);
       return res;
     },
   });
+
   const {
     data: referralInfo,
     isPending: isReferralPending,
@@ -338,7 +317,7 @@ const DashboardHome = () => {
                     {/* <Legend /> */}
                     <Bar
                       // type="monotone"
-                      dataKey="reward"
+                      dataKey="value"
                       // stroke="#51cb89"
                       // fillOpacity={1}
                       fill="url(#colorUvBar1)"
