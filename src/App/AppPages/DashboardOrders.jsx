@@ -121,7 +121,7 @@ const DashboardOrders = () => {
                             alt=""
                             className="dashboardEarnDiv_cont2_div1_cont1_div_img"
                           />{" "}
-                          {data.amount}
+                          {data.amount} egax
                         </div>
                         <div className="dashboardEarnDiv_cont2_div1_cont1_div">
                           {data.quantity}

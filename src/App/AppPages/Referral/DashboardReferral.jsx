@@ -10,6 +10,7 @@ import { numberWithCommas } from "../../../assets/js/numberWithCommas";
 import { ShimmerButton } from "react-shimmer-effects-18";
 import ErrorModal from "../../../Components/ErrorModal/ErrorModal";
 import SuccessModal from "../../../Components/SuccessModal/SuccessModal";
+import { getUserMainInfo } from "../../../hooks/useGetUserInfo";
 import { Table } from "../../../Components/Tables/TableComp";
 import DasboardMember from "./DasboardMember";
 import {
@@ -19,9 +20,6 @@ import {
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 const DashboardReferral = () => {
-  const [componentLoading, setComponentLoading] = useState(false);
-  const [componentLoading2, setComponentLoading2] = useState(true);
-  const [componentLoading3, setComponentLoading3] = useState(true);
   const [inactiveReferral, setInactiveReferral] = useState([]);
   const [activeReferrals, setActiveReferrals] = useState([]);
   const [leaderBoard, setLeaderBoard] = useState([]);
@@ -123,7 +121,7 @@ const DashboardReferral = () => {
       <div className="swapDivCont">
         <div className="pool_deatail_area_member_div">
           <DasboardMember
-            refCode={getUserMainInfo().swapRef}
+            refCode={getUserMainInfo()?.swapRef}
             componentLoading={isReferralPending}
             refAmount={refEarn}
           />
@@ -467,7 +465,7 @@ const DashboardReferral = () => {
               </div>
               <input
                 type="text"
-                value={getUserMainInfo().swapRef}
+                value={getUserMainInfo()?.swapRef}
                 className="referral_default_value"
                 id="myInput"
               />

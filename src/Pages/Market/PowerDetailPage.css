@@ -14,7 +14,7 @@
   flex-direction: column;
   position: sticky;
   top: 0;
-  height: 100%;
+  height: 500px;
 }
 .ProductDetailPage_section_area_1Swiper {
   width: 100%;
@@ -50,7 +50,7 @@
 }
 .ProductDetailPage_section_area_1Swiper_slide_img {
   width: 100%;
-  height: 500px;
+  height: 100%;
   object-fit: cover;
   border-radius: 20px;
 }

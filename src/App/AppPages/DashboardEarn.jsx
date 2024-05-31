@@ -57,7 +57,22 @@ const DashboardEarn = () => {
       console.log("====================================");
       console.log(res);
       console.log(res, "graph data");
-      setGraphData(res.data.stakeData);
+      if (res.data.stakeData.length !== 0) {
+        const myArray = res.data.stakeData;
+        myArray.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        console.log(myArray);
+        const reversed = myArray
+          .slice()
+          .reverse()
+          .map((data) => {
+            return data;
+          });
+        const temp = reversed;
+
+        setGraphData(() => temp);
+        console.log(temp);
+        return;
+      }
       return res;
     },
   });
@@ -138,7 +153,7 @@ const DashboardEarn = () => {
 
                     <Bar
                       // type="monotone"
-                      dataKey="reward"
+                      dataKey="value"
                       // stroke="#51cb89"
                       // fillOpacity={1}
                       fill="url(#colorUvBar1)"
@@ -239,7 +254,7 @@ const DashboardEarn = () => {
                         </div>
                       </div>
                       <div className="dashboardEarnDiv_cont2_div1_cont1_div">
-                        {data.amount_staked}
+                        {data.amount_staked} NFts
                       </div>
                       <div className="dashboardEarnDiv_cont2_div1_cont1_div">
                         <img
@@ -247,7 +262,7 @@ const DashboardEarn = () => {
                           alt=""
                           className="dashboardEarnDiv_cont2_div1_cont1_div_img"
                         />{" "}
-                        {data.rewards_earned}
+                        {data.rewards_earned} egax
                       </div>
                       <div className="dashboardEarnDiv_cont2_div1_cont1_div">
                         {data.token_id}
