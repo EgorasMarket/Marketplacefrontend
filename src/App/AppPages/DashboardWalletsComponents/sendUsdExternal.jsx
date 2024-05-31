@@ -4,13 +4,12 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { ToastContainer, toast } from "react-toastify";
 import ErrorModal from "../../../Components/ErrorModal/ErrorModal";
 import SuccessModal from "../../../Components/SuccessModal/SuccessModal";
+import { numberWithCommas } from "../../../assets/js/numberWithCommas";
 
 const SendUsdExternal = ({ ToggleEgcBlockchainWithdrawModal, balance }) => {
   const [loading, setLoading] = useState(false);
-  const [pinModal, setPinModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
-  const [pin, setPin] = useState("");
 
   const [payload, setPayload] = useState({
     symbol: "EGAX",
@@ -54,7 +53,7 @@ const SendUsdExternal = ({ ToggleEgcBlockchainWithdrawModal, balance }) => {
         <div className="depositMoneyDiv_cont_1">
           <div className="depositMoneyDiv_cont_title_cont">
             <div className="depositMoneyDiv_cont_title_cont_title">
-              Send USDT
+              Send EGAX
             </div>
             <div className="depositMoneyDiv_cont_title_cont_para">
               Send funds directly to a blockchain account
@@ -82,11 +81,11 @@ const SendUsdExternal = ({ ToggleEgcBlockchainWithdrawModal, balance }) => {
               <div className="depositMoneyDiv_cont_body_input_div_div">
                 <div className="depositMoneyDiv_cont_body_input_div_div_cont1">
                   <img
-                    src="/img/bsc_icon.png"
+                    src="/img/egax_logo.png"
                     alt=""
                     className="depositMoneyDiv_cont_body_input_div_div_cont1_img"
                   />
-                  Binance Smart Chain
+                  Egochain
                 </div>
                 <div className="depositMoneyDiv_cont_body_input_div_div_cont2">
                   {payload.network}
@@ -116,7 +115,9 @@ const SendUsdExternal = ({ ToggleEgcBlockchainWithdrawModal, balance }) => {
               </div>
               <div className="availegc_bal_div">
                 <div className="availegc_bal_div_title">Available</div>
-                <div className="availegc_bal_div_amount">{balance} USD</div>
+                <div className="availegc_bal_div_amount">
+                  {numberWithCommas(parseFloat(balance).toFixed(2))} Egax
+                </div>
               </div>
             </div>
             <div className="depositMoneyDiv_cont_body_wallet_addr_divb">
@@ -134,19 +135,19 @@ const SendUsdExternal = ({ ToggleEgcBlockchainWithdrawModal, balance }) => {
               <div className="depositMoneyDiv_cont_body_tips_div_1">
                 <InfoOutlinedIcon className="depositMoneyDiv_cont_body_tips_div_1_icon" />
                 <div className="depositMoneyDiv_cont_body_tips_div_1_txt">
-                  Minimum single withdrawal amount: 10 usd
+                  Minimum single withdrawal amount: 0.1 Egax
                 </div>
               </div>
               <div className="depositMoneyDiv_cont_body_tips_div_1">
                 <InfoOutlinedIcon className="depositMoneyDiv_cont_body_tips_div_1_icon" />
                 <div className="depositMoneyDiv_cont_body_tips_div_1_txt">
-                  Maximum single withdrawal amount: 2,000,000 usd
+                  Maximum single withdrawal amount: 2,000 Egax
                 </div>
               </div>
               <div className="depositMoneyDiv_cont_body_tips_div_1">
                 <InfoOutlinedIcon className="depositMoneyDiv_cont_body_tips_div_1_icon" />
                 <div className="depositMoneyDiv_cont_body_tips_div_1_txt">
-                  Make sure the the receiver's wallet is a bep20 wallet
+                  Make sure the the receiver's wallet is a EGO20 wallet
                 </div>
               </div>
             </div>

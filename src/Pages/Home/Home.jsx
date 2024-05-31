@@ -15,6 +15,7 @@ import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
 import Blockies from "react-blockies";
 import { ShoppingCart02Icon } from "hugeicons-react";
 import { LogoutSquare02Icon } from "hugeicons-react";
+import { ArrowUpRight01Icon } from "hugeicons-react";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -47,13 +48,15 @@ const Home = () => {
                   {" "}
                   Discover,
                 </span>{" "}
-                Collect <br />
+                Buy <br />
                 And Earn On
                 <br /> EgoEarn
               </div>
               <div className="HomeDiv_section1_area_1_para">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis
-                eligendi aut, possimus fuga in perferendis.
+                Discover Egoras' Diverse Tokenized Product Ecosystem: Explore
+                Smart TVs, Electric Vehicles, Tricycles, and More. Securely
+                Purchase Products, Receive Physical Goods, and Earn Rewards by
+                Staking the Associated NFTs.
               </div>
               <div className="HomeDiv_section1_area_1_btn_div">
                 <button className="HomeDiv_section1_area_1_btn">
@@ -200,62 +203,84 @@ const Home = () => {
       {/* ========= */}
       {/* ========= */}
       {/* ========= */}
-      <section className="HomeDiv_section4">
+      <section className="HomeDiv_section4" id="how_to">
         <div className="HomeDiv_section1_container">
           <div className="HomeDiv_section4_area">
             <div className="HomeDiv_section4_title">How to Earn</div>
             <div className="HomeDiv_section4_area_body">
               <div className="HomeDiv_section4_area_body_cont1">
                 <LogoutSquare02Icon className="HomeDiv_section4_area_body_cont1_icon" />
-                <div className="HomeDiv_section4_area_body_cont1_title">
-                  Register
+                <div className="HomeDiv_section4_area_body_cont1_txts">
+                  <div className="HomeDiv_section4_area_body_cont1_title">
+                    Create an Account
+                  </div>
+                  <div className="HomeDiv_section4_area_body_cont1_para">
+                    Provide your email address to sign up effortlessly.
+                  </div>
                 </div>
-                <div className="HomeDiv_section4_area_body_cont1_para">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-                  blanditiis repudiandae, placeat ratione aliquid aut.
-                </div>
-                <button className="HomeDiv_section4_area_body_cont1_btn">
+                <ArrowUpRight01Icon
+                  size={42}
+                  className="HomeDiv_section4_area_body_cont1_txts_icon"
+                />
+                {/* <button className="HomeDiv_section4_area_body_cont1_btn">
                   Get started
-                </button>
+                </button> */}
               </div>
               <div className="HomeDiv_section4_area_body_cont1">
                 <LogoutSquare02Icon className="HomeDiv_section4_area_body_cont1_icon" />
-                <div className="HomeDiv_section4_area_body_cont1_title">
-                  Register
+                <div className="HomeDiv_section4_area_body_cont1_txts">
+                  <div className="HomeDiv_section4_area_body_cont1_title">
+                    Explore
+                  </div>
+                  <div className="HomeDiv_section4_area_body_cont1_para">
+                    Browse a wide selection of products tailored to your
+                    interests.
+                  </div>
                 </div>
-                <div className="HomeDiv_section4_area_body_cont1_para">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-                  blanditiis repudiandae, placeat ratione aliquid aut.
-                </div>
-                <button className="HomeDiv_section4_area_body_cont1_btn">
+                <ArrowUpRight01Icon
+                  size={42}
+                  className="HomeDiv_section4_area_body_cont1_txts_icon"
+                />
+                {/* <button className="HomeDiv_section4_area_body_cont1_btn">
                   Get started
-                </button>
+                </button> */}
               </div>
               <div className="HomeDiv_section4_area_body_cont1">
                 <LogoutSquare02Icon className="HomeDiv_section4_area_body_cont1_icon" />
-                <div className="HomeDiv_section4_area_body_cont1_title">
-                  Register
+                <div className="HomeDiv_section4_area_body_cont1_txts">
+                  <div className="HomeDiv_section4_area_body_cont1_title">
+                    Purchase
+                  </div>
+                  <div className="HomeDiv_section4_area_body_cont1_para">
+                    Use $EGAX to buy from our range of products and redeem your
+                    purchases.
+                  </div>
                 </div>
-                <div className="HomeDiv_section4_area_body_cont1_para">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-                  blanditiis repudiandae, placeat ratione aliquid aut.
-                </div>
-                <button className="HomeDiv_section4_area_body_cont1_btn">
+                <ArrowUpRight01Icon
+                  size={42}
+                  className="HomeDiv_section4_area_body_cont1_txts_icon"
+                />
+                {/* <button className="HomeDiv_section4_area_body_cont1_btn">
                   Get started
-                </button>
+                </button> */}
               </div>
               <div className="HomeDiv_section4_area_body_cont1">
                 <LogoutSquare02Icon className="HomeDiv_section4_area_body_cont1_icon" />
-                <div className="HomeDiv_section4_area_body_cont1_title">
-                  Register
+                <div className="HomeDiv_section4_area_body_cont1_txts">
+                  <div className="HomeDiv_section4_area_body_cont1_title">
+                    Earn
+                  </div>
+                  <div className="HomeDiv_section4_area_body_cont1_para">
+                    Stake the NFTs you acquire to earn $EGAX daily.
+                  </div>
                 </div>
-                <div className="HomeDiv_section4_area_body_cont1_para">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-                  blanditiis repudiandae, placeat ratione aliquid aut.
-                </div>
-                <button className="HomeDiv_section4_area_body_cont1_btn">
+                <ArrowUpRight01Icon
+                  size={42}
+                  className="HomeDiv_section4_area_body_cont1_txts_icon"
+                />
+                {/* <button className="HomeDiv_section4_area_body_cont1_btn">
                   Get started
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
@@ -280,12 +305,14 @@ const Home = () => {
             <div className="HomeDiv_section5_area_2">
               <div className="HomeDiv_section5_area_2_title">
                 Buy and earn
-                <br /> with your{" "}
-                <span className="HomeDiv_section5_area_2_title_span">NFts</span>
+                <br /> with{" "}
+                <span className="HomeDiv_section5_area_2_title_span">
+                  EgoEarn
+                </span>
               </div>
               <div className="HomeDiv_section5_area_2_para">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Sapiente, reiciendis odit ex provident quos commodi.
+                Effortlessly stake your NFTs on EgoEarn to earn daily rewards in
+                $EGAX.
               </div>
               <button className="HomeDiv_section5_area_2_btn">
                 View marketplace
@@ -304,9 +331,9 @@ const Home = () => {
           <div className="HomeDiv_section3_div2">
             <div className="HomeDiv_section3_div2_cont1">
               <div className="HomeDiv_section3_div2_cont1_title">
-                Create your unique NFT collection in <br />
+                Discover, Buy and Earn on{" "}
                 <span className="HomeDiv_section3_div2_cont1_title_">
-                  OKX NFT Studio
+                  EgoEarn
                 </span>
               </div>
               <button className="HomeDiv_section3_div2_cont1_btn">

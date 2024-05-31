@@ -3,6 +3,7 @@ import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import { QRCode } from "react-qrcode-logo";
 import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import getUserInfo from "../../../helper/userhelper";
 
 const DepositUsdFromUser = ({ ToggleEgcUserDepositModal }) => {
   const copyText = () => {
@@ -30,7 +31,7 @@ const DepositUsdFromUser = ({ ToggleEgcUserDepositModal }) => {
         <div className="depositMoneyDiv_cont_1">
           <div className="depositMoneyDiv_cont_title_cont">
             <div className="depositMoneyDiv_cont_title_cont_title">
-              Deposit Usd
+              Deposit EGAX
             </div>
             <div className="depositMoneyDiv_cont_title_cont_para">
               Add funds directly from an egoras user
@@ -44,25 +45,25 @@ const DepositUsdFromUser = ({ ToggleEgcUserDepositModal }) => {
               <div className="depositMoneyDiv_cont_body_input_div_div">
                 <div className="depositMoneyDiv_cont_body_input_div_div_cont1">
                   <img
-                    src="/img/tether_icon.png"
+                    src="/img/egax_logo.png"
                     alt=""
                     className="depositMoneyDiv_cont_body_input_div_div_cont1_img"
                   />
-                  Tetehr Usd
+                  EGAX
                 </div>
                 <div className="depositMoneyDiv_cont_body_input_div_div_cont2">
-                  USDT
+                  EGAX
                 </div>
               </div>
             </div>
             <div className="depositMoneyDiv_cont_body_qr_div">
               <QRCode
-                value={"Cyntax"}
+                value={getUserInfo().username}
                 quietZone={5}
                 eyeColor="#fff"
                 bgColor="#161619"
                 fgColor="#fff"
-                logoImage="/img/tether_icon.png"
+                logoImage="/img/egax_logo.png"
                 eyeRadius={[
                   [5, 5, 0, 5],
                   [5, 5, 5, 0],
@@ -86,7 +87,7 @@ const DepositUsdFromUser = ({ ToggleEgcUserDepositModal }) => {
               <div className="depositMoneyDiv_cont_body_wallet_addr_div_input_div">
                 <input
                   type="text"
-                  value={"Cyntax"}
+                  value={getUserInfo().username}
                   className="depositMoneyDiv_cont_body_wallet_addr_div_input"
                   id="myInput"
                 />
@@ -106,7 +107,7 @@ const DepositUsdFromUser = ({ ToggleEgcUserDepositModal }) => {
               <div className="depositMoneyDiv_cont_body_tips_div_1">
                 <InfoOutlinedIcon className="depositMoneyDiv_cont_body_tips_div_1_icon" />
                 <div className="depositMoneyDiv_cont_body_tips_div_1_txt">
-                  Send only USD to this deposit address
+                  Send only EGAX to this deposit address
                 </div>
               </div>
               <div className="depositMoneyDiv_cont_body_tips_div_1">

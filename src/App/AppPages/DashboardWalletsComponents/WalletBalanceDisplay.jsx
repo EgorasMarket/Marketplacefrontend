@@ -62,14 +62,14 @@ const WalletBalanceDisplay = ({
       </div>
 
       <SwapHorizOutlinedIcon className="walletSwapIcon" />
-      <img
+      {/* <img
         src="/img/cards_bg_line.svg"
         alt=""
         class="ProductCheckoutPage_div_section_area_1_area3_body_card1_bg"
         style={{
           filter: "contrast(0.3)",
         }}
-      />
+      /> */}
     </div>
   );
 };

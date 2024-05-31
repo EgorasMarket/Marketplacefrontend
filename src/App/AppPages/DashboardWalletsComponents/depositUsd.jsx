@@ -3,6 +3,7 @@ import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import { QRCode } from "react-qrcode-logo";
 import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import getUserInfo from "../../../helper/userhelper";
 const DepositUsd = ({ ToggleEgcBlockchainDepositModal }) => {
   const [loading, setLoading] = useState(true);
   const [payload, setPayload] = useState({
@@ -49,14 +50,14 @@ const DepositUsd = ({ ToggleEgcBlockchainDepositModal }) => {
               <div className="depositMoneyDiv_cont_body_input_div_div">
                 <div className="depositMoneyDiv_cont_body_input_div_div_cont1">
                   <img
-                    src="/img/tether_icon.png"
+                    src="/img/egax_logo.png"
                     alt=""
                     className="depositMoneyDiv_cont_body_input_div_div_cont1_img"
                   />
-                  Tether Usd
+                  EGAX
                 </div>
                 <div className="depositMoneyDiv_cont_body_input_div_div_cont2">
-                  USDT
+                  EGAX
                 </div>
               </div>
             </div>
@@ -67,25 +68,25 @@ const DepositUsd = ({ ToggleEgcBlockchainDepositModal }) => {
               <div className="depositMoneyDiv_cont_body_input_div_div">
                 <div className="depositMoneyDiv_cont_body_input_div_div_cont1">
                   <img
-                    src="/img/bsc_icon.png"
+                    src="/img/egax_logo.png"
                     alt=""
                     className="depositMoneyDiv_cont_body_input_div_div_cont1_img"
                   />
-                  Binance Smart Chain
+                  EGOCHAIN
                 </div>
                 <div className="depositMoneyDiv_cont_body_input_div_div_cont2">
-                  BEP20
+                  EGO20
                 </div>
               </div>
             </div>
             <div className="depositMoneyDiv_cont_body_qr_div">
               <QRCode
-                value={"0x3de456tgfe43e3e3wde3e"}
+                value={getUserInfo().wallet_address}
                 quietZone={5}
                 eyeColor="#fff"
                 bgColor="#161619"
                 fgColor="#fff"
-                logoImage="/img/tether_icon.png"
+                logoImage="/img/egax_logo.png"
                 eyeRadius={[
                   [5, 5, 0, 5],
                   [5, 5, 5, 0],
@@ -109,7 +110,7 @@ const DepositUsd = ({ ToggleEgcBlockchainDepositModal }) => {
               <div className="depositMoneyDiv_cont_body_wallet_addr_div_input_div">
                 <input
                   type="text"
-                  value={"0x3de456tgfe43e3e3wde3e"}
+                  value={getUserInfo().wallet_address}
                   className="depositMoneyDiv_cont_body_wallet_addr_div_input"
                   id="myInput"
                 />
@@ -129,13 +130,13 @@ const DepositUsd = ({ ToggleEgcBlockchainDepositModal }) => {
               <div className="depositMoneyDiv_cont_body_tips_div_1">
                 <InfoOutlinedIcon className="depositMoneyDiv_cont_body_tips_div_1_icon" />
                 <div className="depositMoneyDiv_cont_body_tips_div_1_txt">
-                  Send only USDT to this deposit address
+                  Send only EGAX to this deposit address
                 </div>
               </div>
               <div className="depositMoneyDiv_cont_body_tips_div_1">
                 <InfoOutlinedIcon className="depositMoneyDiv_cont_body_tips_div_1_icon" />
                 <div className="depositMoneyDiv_cont_body_tips_div_1_txt">
-                  Ensure the network is BNB Smart-Chain (BEP20)
+                  Ensure the network is EGOCHAIN (EGO20)
                 </div>
               </div>
               <div className="depositMoneyDiv_cont_body_tips_div_1">

@@ -6,6 +6,7 @@ import "modern-react-avatar/dist/index.css";
 // import CloseIcon from "@mui/icons-material/Close";
 import { Notification03Icon } from "hugeicons-react";
 import { Copy01Icon } from "hugeicons-react";
+import getUserInfo from "../helper/userhelper";
 
 const DashboardHeader = ({ currentPathName, routes, activeRoute }) => {
   const [activeLink, setActiveLink] = useState("Home");
@@ -69,7 +70,10 @@ const DashboardHeader = ({ currentPathName, routes, activeRoute }) => {
             <Notification03Icon className="DashboardHeader_area_2_cont1_icon" />
           </div>
           <div className="wallet_address_header_Div">
-            0x3d...4e3d{" "}
+            {`${getUserInfo().wallet_address.slice(
+              0,
+              4
+            )}...${getUserInfo().wallet_address.slice(38, 42)}`}
             <Copy01Icon className="wallet_address_header_Div_icon1" size={20} />
           </div>
           {/* <div className="DashboardHeader_area_2_cont1">
@@ -78,7 +82,7 @@ const DashboardHeader = ({ currentPathName, routes, activeRoute }) => {
           <div className="DashboardHeader_area_2_cont2">
             <div className="DashboardHeader_area_2_cont2_cont1">
               <Avatar
-                name={"samuel ifeanyi"}
+                name={getUserInfo().username}
                 size="small"
                 className="DashboardHeader_area_2_cont2_cont1_avatar"
               />

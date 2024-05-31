@@ -1,0 +1,39 @@
+.footer_div {
+  padding: 4em 0em;
+  position: relative;
+  color: #fff;
+}
+
+.footer_container {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 1em;
+}
+.footer_div_area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer_div_area_1 {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 500;
+  width: 100%;
+  justify-content: center;
+  padding: 1em 0;
+}
+
+hr {
+  width: 100%;
+  border: solid 1px #1d1d1d;
+}
+
+.footer_div_area_2 {
+  padding: 1em 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

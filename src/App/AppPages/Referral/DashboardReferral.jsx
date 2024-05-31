@@ -12,6 +12,12 @@ import ErrorModal from "../../../Components/ErrorModal/ErrorModal";
 import SuccessModal from "../../../Components/SuccessModal/SuccessModal";
 import { Table } from "../../../Components/Tables/TableComp";
 import DasboardMember from "./DasboardMember";
+import getUserInfo from "../../../helper/userhelper";
+import {
+  FETCH_REFERRAL_DATA,
+  FETCH_REFERRAL_LEADERBOARD,
+} from "../../../Services/userServices";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 const DashboardReferral = () => {
   const [componentLoading, setComponentLoading] = useState(false);
@@ -28,6 +34,7 @@ const DashboardReferral = () => {
   const [successTxt, setSuccessTxt] = useState("");
   const [successModal, setSuccessModal] = useState(false);
   const [errorModal, setErrorModal] = useState(false);
+  const [refEarn, setRefEarn] = useState(0);
 
   const containerRef = useRef(null);
   const copyText = () => {
@@ -67,15 +74,59 @@ const DashboardReferral = () => {
       setIsLoading2(false);
     }, 2000); // Adjust the delay duration as needed (e.g., 1000 milliseconds or 1 second)
   };
-
+  const {
+    data: referralInfo,
+    isPending: isReferralPending,
+    isError: isReferralError,
+    error: referralError,
+  } = useQuery({
+    queryKey: "refer_data",
+    queryFn: async () => {
+      const res = await FETCH_REFERRAL_DATA();
+      console.log("====================================");
+      console.log(res, "alalalal");
+      console.log(res);
+      setMyReferrals(res?.data);
+      let total = 0;
+      res.data.forEach((item) => {
+        total += parseFloat(item.amount);
+      });
+      const activeReferralArray = res.data.filter((data) => {
+        return data.status === "ACTIVE";
+      });
+      const InactiveReferralArray = res.data.filter((data) => {
+        return data.status === "INACTIVE";
+      });
+      setRefEarn(total);
+      setInactiveReferral(InactiveReferralArray);
+      setActiveReferrals(activeReferralArray);
+      return res;
+    },
+  });
+  const {
+    data: referralLeaderboard,
+    isPending: isRefLeaderBoardPending,
+    isError: isRefLeaderboardError,
+    error: refLeaderboardError,
+  } = useQuery({
+    queryKey: "refer_leaderboard_data",
+    queryFn: async () => {
+      const res = await FETCH_REFERRAL_LEADERBOARD();
+      console.log("====================================");
+      console.log(res, "alalalal");
+      console.log(res);
+      setLeaderBoard(res?.data);
+      return res;
+    },
+  });
   return (
     <section className="ex_section">
       <div className="swapDivCont">
         <div className="pool_deatail_area_member_div">
           <DasboardMember
-            refCode={"33g3tgf"}
-            componentLoading={componentLoading}
-            refAmount={"200"}
+            refCode={getUserInfo().swapRef}
+            componentLoading={isReferralPending}
+            refAmount={refEarn}
           />
         </div>
         <div className="dashBoard_ref_area1">
@@ -92,7 +143,7 @@ const DashboardReferral = () => {
                       Active Referral(s)
                     </div>
                     <div className="dashBoard_ref_area1_cont1_div1_cont2">
-                      {componentLoading ? (
+                      {isRefLeaderBoardPending ? (
                         <ShimmerButton size="sm" className="custom_shimmer" />
                       ) : (
                         <>
@@ -118,7 +169,7 @@ const DashboardReferral = () => {
                       Inactive Referral(s)
                     </div>
                     <div className="dashBoard_ref_area1_cont1_div1_cont2">
-                      {componentLoading ? (
+                      {isRefLeaderBoardPending ? (
                         <ShimmerButton size="sm" className="custom_shimmer" />
                       ) : (
                         <>
@@ -145,7 +196,7 @@ const DashboardReferral = () => {
                   Total Referrals
                 </div>
                 <div className="dashBoard_ref_area1_cont1_div1_cont2">
-                  {componentLoading ? (
+                  {isReferralPending ? (
                     <ShimmerButton size="sm" className="custom_shimmer" />
                   ) : (
                     <>
@@ -170,7 +221,7 @@ const DashboardReferral = () => {
               Leader board
             </div>
             <span className="table_hr"></span>
-            {componentLoading2 ? (
+            {isRefLeaderBoardPending ? (
               <div className="dashBoard_ref_area2_cont1_body">
                 <div className="dashBoard_ref_area2_cont1_body_div_head">
                   <div className="dashBoard_ref_area2_cont1_body_div_head_cont1 dashBoard_ref_area2_cont1_body_div_head_cont1_first">
@@ -331,7 +382,7 @@ const DashboardReferral = () => {
                 My Referrals
               </div>
               <span className="table_hr"></span>
-              {componentLoading3 ? (
+              {isReferralPending ? (
                 <div className="dashBoard_ref_area2_cont1_body">
                   <div className="dashBoard_ref_area2_cont1_body_div_head">
                     <div className="dashBoard_ref_area2_cont1_body_div_head_cont1_first">
@@ -417,7 +468,7 @@ const DashboardReferral = () => {
               </div>
               <input
                 type="text"
-                value={"364738g"}
+                value={getUserInfo().swapRef}
                 className="referral_default_value"
                 id="myInput"
               />

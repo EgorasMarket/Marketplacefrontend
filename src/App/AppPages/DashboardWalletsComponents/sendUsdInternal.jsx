@@ -6,6 +6,7 @@ import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import ScaleLoader from "react-spinners/ScaleLoader";
+import { numberWithCommas } from "../../../assets/js/numberWithCommas";
 
 import { ToastContainer, toast } from "react-toastify";
 import ErrorModal from "../../../Components/ErrorModal/ErrorModal";
@@ -51,7 +52,7 @@ const SendUsdInternal = ({ ToggleEgcUserWithdrawtModal, balance }) => {
         <div className="depositMoneyDiv_cont_1">
           <div className="depositMoneyDiv_cont_title_cont">
             <div className="depositMoneyDiv_cont_title_cont_title">
-              Send USD
+              Send EGAX
             </div>
             <div className="depositMoneyDiv_cont_title_cont_para">
               Send funds directly to an egoras user
@@ -65,11 +66,11 @@ const SendUsdInternal = ({ ToggleEgcUserWithdrawtModal, balance }) => {
               <div className="depositMoneyDiv_cont_body_input_div_div">
                 <div className="depositMoneyDiv_cont_body_input_div_div_cont1">
                   <img
-                    src="/img/tether_icon.png"
+                    src="/img/egax_logo.png"
                     alt=""
                     className="depositMoneyDiv_cont_body_input_div_div_cont1_img"
                   />
-                  Tether Usd
+                  EGAX
                 </div>
                 <div className="depositMoneyDiv_cont_body_input_div_div_cont2">
                   {payload.symbol}
@@ -152,7 +153,10 @@ const SendUsdInternal = ({ ToggleEgcUserWithdrawtModal, balance }) => {
               </div>
               <div className="availegc_bal_div">
                 <div className="availegc_bal_div_title">Available</div>
-                <div className="availegc_bal_div_amount">{balance} USD</div>
+                <div className="availegc_bal_div_amount">
+                  {" "}
+                  {numberWithCommas(parseFloat(balance).toFixed(2))} USD
+                </div>
               </div>
             </div>
             <div className="depositMoneyDiv_cont_body_wallet_addr_divb">
