@@ -5,7 +5,6 @@ import "../AppStyles/dashboardTransactions.css";
 import { ShimmerButton } from "react-shimmer-effects-18";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { TRANSACTIONS } from "../../Services/TransactionServices";
-import getUserInfo from "../../helper/userhelper";
 import { getUserMainInfo } from "../../hooks/useGetUserInfo";
 
 const DashboardTransactions = () => {

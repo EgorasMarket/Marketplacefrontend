@@ -3,7 +3,6 @@ import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import { QRCode } from "react-qrcode-logo";
 import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import getUserInfo from "../../../helper/userhelper";
 import { getUserMainInfo } from "../../../hooks/useGetUserInfo";
 const DepositUsd = ({ ToggleEgcBlockchainDepositModal }) => {
   const [loading, setLoading] = useState(true);
@@ -82,7 +81,7 @@ const DepositUsd = ({ ToggleEgcBlockchainDepositModal }) => {
             </div>
             <div className="depositMoneyDiv_cont_body_qr_div">
               <QRCode
-                value={getUserMainInfo().wallet_address}
+                value={getUserMainInfo()?.wallet_address}
                 quietZone={5}
                 eyeColor="#fff"
                 bgColor="#161619"
@@ -111,7 +110,7 @@ const DepositUsd = ({ ToggleEgcBlockchainDepositModal }) => {
               <div className="depositMoneyDiv_cont_body_wallet_addr_div_input_div">
                 <input
                   type="text"
-                  value={getUserMainInfo().wallet_address}
+                  value={getUserMainInfo()?.wallet_address}
                   className="depositMoneyDiv_cont_body_wallet_addr_div_input"
                   id="myInput"
                 />

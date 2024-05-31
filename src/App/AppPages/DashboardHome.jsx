@@ -8,7 +8,6 @@ import { Table } from "../../Components/Tables/TableComp";
 import Staticdata from "../../assets/json/Static";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { TRANSACTIONS } from "../../Services/TransactionServices";
-import getUserInfo from "../../helper/userhelper";
 import getMonthFromNumber from "../../Components/MonthFromNumber";
 import {
   AreaChart,
@@ -484,7 +483,7 @@ const DashboardHome = () => {
             TableData={transaction.slice(0, 7)}
             dummyData={Staticdata.productsTableData.slice(0, 8)}
             contentLoading={getTransactionLoding}
-            userName={getUserMainInfo().username}
+            userName={getUserMainInfo()?.username}
           />
         </div>
       </div>

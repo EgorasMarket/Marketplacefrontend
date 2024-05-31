@@ -52,7 +52,8 @@
   border-radius: 7px;
   display: flex;
   align-items: center;
-  margin: 0em 2em;
+  margin: 0em 1em;
+  padding: 10px;
 }
 .DashboardNav_body_1_txt {
   width: 100%;
@@ -64,12 +65,15 @@
 .DashboardNav_body_1_active::before {
   content: "";
   height: 2px;
-  width: 100%;
+  width: 50%;
   position: absolute;
   left: 0;
   background: #ffffff;
-  bottom: -30px;
+  bottom: -20%;
   border-radius: 50px;
+  margin: auto;
+  left: 0;
+  right: 0;
 }
 .DashboardNav_body_1 {
   color: #68988f;
@@ -80,12 +84,14 @@
   border-radius: 7px;
   display: flex;
   align-items: center;
-  margin: 0em 2em;
+  margin: 0em 1em;
+  padding: 10px;
 }
 .DashboardNav_body_1:hover {
-  color: #838383;
-  background: #1e1e1e;
+  color: #8aada8;
+  background: #38524e;
   border-radius: 10px;
+  padding: 10px;
 }
 .dashNavLogout {
   display: flex;
@@ -171,6 +177,61 @@
     opacity: 0;
   }
 }
+.more_div {
+  color: #68988f;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  margin: 0em 1em;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.more_div:hover {
+  color: #8aada8;
+  background: #38524e;
+  border-radius: 10px;
+  padding: 10px;
+}
+.more_links_div {
+  position: absolute;
+  top: 140%;
+  background: #000;
+  right: 0;
+  border-radius: 10px;
+  padding: 10px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.more_links_div .DashboardNav_body_1_active::before {
+  content: "";
+  width: 2px;
+  height: 50%;
+  position: absolute;
+  right: -100%;
+  background: #ffffff;
+  border-radius: 50px;
+  /* margin: auto; */
+  top: 0;
+  bottom: 0;
+}
+.DashboardNav_body_1_icon_more {
+  font-size: 24px !important;
+  /* margin-right: 5px;
+    margin-bottom: 1px; */
+}
+.DashboardNav_body_1_icon_more_active {
+  font-size: 24px !important;
+  color: #fff;
+  /* margin-right: 5px;
+    margin-bottom: 1px; */
+}
 
 @media screen and (max-width: 1000px) {
   .DashboardNav_body_1_active .DashboardNav_body_1_icon {
@@ -208,8 +269,8 @@
   }
   .DashboardNav_body_1_active {
     background: none;
-    color: #61d797;
-    padding: 0.5em 0.5em;
+    color: #ffffff;
+    padding: 0em 0.5em;
     cursor: pointer;
     position: relative;
     font-size: 14px;
@@ -221,13 +282,15 @@
     flex-direction: column;
     animation: pulse;
     animation-duration: 0.5s;
+    width: max-content;
+    margin: 0;
   }
   .DashboardNav_body_1_active::before {
     display: none;
   }
   .DashboardNav_body_1 {
-    color: #5c5c65;
-    padding: 0.5em 0.5em;
+    color: #6d7c79;
+    padding: 0em 0.5em;
     cursor: pointer;
     font-size: 14px;
     margin-bottom: 0em;
@@ -235,6 +298,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin: 0;
+    width: max-content;
   }
   .dashNavLogout {
     display: none;

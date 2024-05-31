@@ -12,7 +12,6 @@ import ErrorModal from "../../../Components/ErrorModal/ErrorModal";
 import SuccessModal from "../../../Components/SuccessModal/SuccessModal";
 import { Table } from "../../../Components/Tables/TableComp";
 import DasboardMember from "./DasboardMember";
-import getUserInfo from "../../../helper/userhelper";
 import {
   FETCH_REFERRAL_DATA,
   FETCH_REFERRAL_LEADERBOARD,

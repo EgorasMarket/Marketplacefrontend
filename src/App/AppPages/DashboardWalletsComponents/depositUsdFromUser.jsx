@@ -58,7 +58,7 @@ const DepositUsdFromUser = ({ ToggleEgcUserDepositModal }) => {
             </div>
             <div className="depositMoneyDiv_cont_body_qr_div">
               <QRCode
-                value={getUserMainInfo().username}
+                value={getUserMainInfo()?.username}
                 quietZone={5}
                 eyeColor="#fff"
                 bgColor="#161619"
@@ -87,7 +87,7 @@ const DepositUsdFromUser = ({ ToggleEgcUserDepositModal }) => {
               <div className="depositMoneyDiv_cont_body_wallet_addr_div_input_div">
                 <input
                   type="text"
-                  value={getUserMainInfo().username}
+                  value={getUserMainInfo()?.username}
                   className="depositMoneyDiv_cont_body_wallet_addr_div_input"
                   id="myInput"
                 />

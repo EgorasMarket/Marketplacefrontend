@@ -12,6 +12,7 @@ import DashboardHeader from "./DashboardHeader";
 import "./AppStyles/Dashboard.css";
 import "./AppStyles/event.css";
 import { useUser } from "../hooks/useUser";
+import DashboardMobileNav from "./DashboardMobileNav";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -44,17 +45,25 @@ const Dashboard = () => {
       }
     });
   };
-  // if (user === null && loading === false) return navigate("/login");
   if (user === null && loading === false) return navigate("/login");
   return (
     <div className="event_div">
       {" "}
       <section className="event_comp">
         <div className="event_div_area">
-          <DashboardHeader currentPathName={currentRoute} routes={routes} />
+          <DashboardHeader
+            currentPathName={currentRoute}
+            routes={routes}
+            activeRoute={currentRoute}
+          />
           <div className="event_div_area_body">
             <Routes>{getRoutes(routes)}</Routes>
           </div>
+          <DashboardMobileNav
+            currentPathName={currentRoute}
+            routes={routes}
+            activeRoute={currentRoute}
+          />
         </div>
 
         <img

@@ -10,6 +10,9 @@ export const FETCH_ALL_STAKE_ROUTE = `/portfolio/get/my/staking/earnings`;
 export const FETH_PRODUCT_BY_ID_ROUTE = `/product/fetch/product/by`;
 export const PURCHASE_PRODUCT_ROUTE = `/order/purchase/product`;
 export const DELIVERY_INFO_ROUTE = `/order/submit/delivery-info`;
+export const SEND_CRYPTO_EXTERNAL_ROUTE = `/api/withdrawal/external`;
+export const SEND_CRYPTO_INTERNAL_ROUTE = `/api/withdrawal/internal`;
+export const VERIFY_SENDOUT_EMAIL_USERNAME = `/api/withdrawal/get/user`;
 // ==========
 // ==========
 // ==========
