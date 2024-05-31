@@ -18,7 +18,6 @@ import {
   FETCH_REFERRAL_LEADERBOARD,
 } from "../../../Services/userServices";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { getUserMainInfo } from "../../../hooks/useGetUserInfo";
 
 const DashboardReferral = () => {
   const [inactiveReferral, setInactiveReferral] = useState([]);
