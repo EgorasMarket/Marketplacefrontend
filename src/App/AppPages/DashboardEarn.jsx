@@ -21,13 +21,15 @@ import {
   BarChart,
   ResponsiveContainer,
 } from "recharts";
+import { QUERY_KEY } from "../../constants/queryKeys";
 const DashboardEarn = () => {
   const [stakes, setStakes] = useState([]);
   const [graphData, setGraphData] = useState([]);
   const [dashData, setDashData] = useState({});
 
   const { data: getProducts, isPending } = useQuery({
-    queryKey: "getProducts",
+    queryKey: [QUERY_KEY.products],
+
     queryFn: async () => {
       const res = await FETCH_ALL_STAKE();
       console.log("====================================");
@@ -37,13 +39,6 @@ const DashboardEarn = () => {
       return res;
     },
   });
-  const FetchAllProducts = async () => {
-    await getProducts();
-  };
-
-  useEffect(() => {
-    FetchAllProducts();
-  }, []);
 
   const {
     data: graph_data,
@@ -51,7 +46,7 @@ const DashboardEarn = () => {
     isError: isGraphError,
     error: graphError,
   } = useQuery({
-    queryKey: "graph_data",
+    queryKey: ["graph_data"],
     queryFn: async () => {
       const res = await FETCH_STAKE_POOL_DATA();
       console.log("====================================");
@@ -67,7 +62,7 @@ const DashboardEarn = () => {
     isError: isDashError,
     error: dashError,
   } = useQuery({
-    queryKey: "dash_data",
+    queryKey: ["dash_data"],
     queryFn: async () => {
       const res = await FETCH_DASHBOARD_DATA();
       console.log("====================================");

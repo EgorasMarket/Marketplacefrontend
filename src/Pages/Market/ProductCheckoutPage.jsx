@@ -137,7 +137,7 @@ const ProductCheckoutPage = () => {
   };
 
   const { data: userBalance } = useQuery({
-    queryKey: "userBalance",
+    queryKey: ["userBalance"],
     queryFn: async () => {
       const res = await USER_BALANCE();
       console.log("====================================");

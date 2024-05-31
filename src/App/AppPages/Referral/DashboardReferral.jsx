@@ -79,7 +79,7 @@ const DashboardReferral = () => {
     isError: isReferralError,
     error: referralError,
   } = useQuery({
-    queryKey: "refer_data",
+    queryKey: ["refer_data"],
     queryFn: async () => {
       const res = await FETCH_REFERRAL_DATA();
       console.log("====================================");
@@ -108,7 +108,7 @@ const DashboardReferral = () => {
     isError: isRefLeaderboardError,
     error: refLeaderboardError,
   } = useQuery({
-    queryKey: "refer_leaderboard_data",
+    queryKey: ["refer_leaderboard_data"],
     queryFn: async () => {
       const res = await FETCH_REFERRAL_LEADERBOARD();
       console.log("====================================");

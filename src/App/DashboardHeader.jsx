@@ -10,7 +10,10 @@ import { Copy01Icon } from "hugeicons-react";
 import getUserInfo from "../helper/userhelper";
 import { useUser } from "../hooks/useUser";
 import { getUserMainInfo } from "../hooks/useGetUserInfo";
+import { useQueryClient } from "@tanstack/react-query";
+import { QUERY_KEY } from "../constants/queryKeys";
 const DashboardHeader = ({ routes, activeRoute }) => {
+  const queryClient = useQueryClient();
   const { user } = useUser();
   const [activeLink, setActiveLink] = useState("Home");
   const [headerMenu, setHeaderMenu] = useState(false);
@@ -154,9 +157,16 @@ const DashboardHeader = ({ routes, activeRoute }) => {
             <Notification03Icon className="DashboardHeader_area_2_cont1_icon" />
           </div> */}
           <div className="DashboardHeader_area_2_cont2">
-            <div className="DashboardHeader_area_2_cont2_cont1">
+            <div
+              className="DashboardHeader_area_2_cont2_cont1"
+              onClick={() => {
+                localStorage.removeItem("x-token");
+                window.location.reload();
+                // queryClient.setQueryData([QUERY_KEY.user], null);
+              }}
+            >
               <Avatar
-                name={getUserMainInfo?.username}
+                name={getUserMainInfo()?.username}
                 // name={getUserInfo().username}
                 size="small"
                 className="DashboardHeader_area_2_cont2_cont1_avatar"

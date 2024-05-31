@@ -16,6 +16,7 @@ export const useUser = () => {
     queryFn: async () => {
       const res = await VERIFY_USER();
       console.log(res, "maduabuchi");
+      //   queryClient.setQueryData([QUERY_KEY.user], res.data.user);
       return res.data.user;
     },
 
@@ -34,6 +35,8 @@ export const useUser = () => {
 
   useEffect(() => {
     console.log(user, "useEffect");
+    // if (!user) removeUser();
+    // else saveUser(user);
   }, [user]);
 
   return { user: user ?? null, loading };

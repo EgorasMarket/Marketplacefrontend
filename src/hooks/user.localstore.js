@@ -12,4 +12,5 @@ export function getUser() {
 
 export function removeUser() {
   localStorage.removeItem(USER_LOCAL_STORAGE_KEY);
+  localStorage.removeItem("x-token");
 }
