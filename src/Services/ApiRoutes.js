@@ -29,3 +29,4 @@ export const GET_REFERRAL_COUNT_ROUTE = `/api/referral/count`;
 export const GET_REFERRAL_LEADERBOARD_ROUTE = `/api/referral/leaderboard`;
 export const GET_DASHBOARD_DATA_ROUTE = `/api/dashboard/data`;
 export const GET_STAKE_DATA_ROUTE = `/api/dashboard/stake/data`;
+export const TRIGGER_EGAX_DEPOSIT_ROUTE = `/portfolio/trigger/egax/deposit`;

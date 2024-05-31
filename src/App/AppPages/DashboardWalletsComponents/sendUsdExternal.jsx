@@ -5,9 +5,10 @@ import { ToastContainer, toast } from "react-toastify";
 import ErrorModal from "../../../Components/ErrorModal/ErrorModal";
 import SuccessModal from "../../../Components/SuccessModal/SuccessModal";
 import { numberWithCommas } from "../../../assets/js/numberWithCommas";
+import { useMutation } from "@tanstack/react-query";
+import { SEND_CRYPTO_EXTERNAL } from "../../../Services/userServices";
 
 const SendUsdExternal = ({ ToggleEgcBlockchainWithdrawModal, balance }) => {
-  const [loading, setLoading] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
 
@@ -20,8 +21,15 @@ const SendUsdExternal = ({ ToggleEgcBlockchainWithdrawModal, balance }) => {
     wallet_address: "",
   });
 
+  const { mutate: sendExternal, isPending: loading } = useMutation({
+    mutationFn: async (payload) => {
+      const res = await SEND_CRYPTO_EXTERNAL(payload);
+      console.log(res, "external withdrawal");
+    },
+  });
   const sendFunds = async () => {
-    alert("sent");
+    if (payload.wallet_address === "" || payload.amount === "") return;
+    await sendExternal(payload);
   };
 
   // const processSend = () => {

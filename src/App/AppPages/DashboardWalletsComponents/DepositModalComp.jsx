@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import WalletOutlinedIcon from "@mui/icons-material/WalletOutlined";
 import AppShortcutOutlinedIcon from "@mui/icons-material/AppShortcutOutlined";
 import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
+import { useMutation } from "@tanstack/react-query";
+import { TRIGGER_DEPOSIT } from "../../../Services/userServices";
 
 const DepositModalComp = ({
   symbol,
@@ -13,6 +15,16 @@ const DepositModalComp = ({
   DynamicFunc2,
   DepositModaldiv,
 }) => {
+  const { mutate: triggerDeposit } = useMutation({
+    mutationFn: async (symbol) => {
+      const res = await TRIGGER_DEPOSIT({ symbol });
+      console.log(res, "alex");
+    },
+  });
+  useEffect(() => {
+    triggerDeposit(symbol);
+  }, []);
+
   return (
     <div className="depositMoneyDiv">
       <div className="depositMoneyDiv_cont">
