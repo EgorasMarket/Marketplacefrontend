@@ -463,9 +463,9 @@
 }
 
 @media (max-width: 999px) {
-  .event_div_area {
+  /* .event_div_area {
     flex-direction: column-reverse;
-  }
+  } */
   .event_sideBar_div {
     width: 100%;
     border: none;
@@ -478,9 +478,7 @@
     flex-direction: column;
     width: 100%;
   }
-  .event_sideBar_div_area_1 {
-    display: none;
-  }
+
   .event_sideBar_div_area_body {
     display: flex;
     flex-direction: column;

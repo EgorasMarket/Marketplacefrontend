@@ -48,7 +48,7 @@ const routes = [
   //
   //
   {
-    name: " Marketplace",
+    name: " Market",
     path: "market",
     icon: <Store03Icon size={24} className="DashboardNav_body_1_icon" />,
     component: <DashboardMarket />,

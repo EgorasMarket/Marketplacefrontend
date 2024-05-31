@@ -85,7 +85,8 @@ const DashboardHome = () => {
           });
         const temp = reversed;
         for (const data of temp) {
-          const date = new Date(data.updatedAt);
+          const date = new Date(data.createdAt);
+
           const day = date.getUTCDate().toString().padStart(2, "0");
           const month = (date.getUTCMonth() + 1).toString().padStart(2, "0");
           const year = date.getUTCFullYear();
@@ -104,20 +105,14 @@ const DashboardHome = () => {
             year: "numeric",
           });
           data.timestamp = formattedDate;
-          data.month = getMonthFromNumber(data.month);
+          data.month = getMonthFromNumber(dateParts[1]);
         }
         console.log(reversed);
-        const totalValue = reversed.reduce((accumulator, currentValue) => {
-          console.log(accumulator, currentValue);
-          return accumulator + currentValue.value;
-        }, 0);
-        console.log(totalValue);
-        setTradeVolume(parseInt(totalValue).toFixed(2));
         console.log(temp);
         setGraphData(() => temp);
         setlastIndex2(temp.length - 1);
         setLastArray2(temp[temp.length - 1]);
-        setChartValue2(() => temp[temp.length - 1].value);
+        setChartValue2(() => temp[temp.length - 1].reward);
         setChartTime2(() => temp[temp.length - 1].timestamp);
         return;
       }
@@ -150,14 +145,14 @@ const DashboardHome = () => {
   const CustomTooltip2 = ({ active, payload, label }) => {
     console.log(active, payload);
     if (active && payload && payload.length) {
-      setChartValue2(payload[0].payload.value);
+      setChartValue2(payload[0].payload.reward);
       setChartTime2(payload[0].payload.timestamp);
     } else {
       if (LastArray2 === 0) {
         setChartValue2(0);
         setChartTime2(0);
       } else {
-        setChartValue2(LastArray2.value);
+        setChartValue2(LastArray2.reward);
         setChartTime2(LastArray2.timestamp);
       }
     }
@@ -289,7 +284,7 @@ const DashboardHome = () => {
               className="analytics_container_1_Amount"
               onChange={CustomTooltip2}
             >
-              ${formatNumber(ChartValue2)}
+              {formatNumber(ChartValue2)} egax
             </div>
             <span className="analytics_container_1_Amount_span">
               {ChartTime2}

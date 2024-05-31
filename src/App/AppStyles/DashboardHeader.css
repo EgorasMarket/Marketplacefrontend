@@ -41,6 +41,9 @@
 .DashboardHeader_area_links {
   display: flex;
   align-items: center;
+  background: #000;
+  padding: 10px;
+  border-radius: 10px;
 }
 .DashboardHeader_area {
   display: flex;
@@ -120,7 +123,7 @@
     position: fixed;
     top: 0;
     z-index: 1000;
-    width: 100%;
+    width: -webkit-fill-available;
   }
   .DashboardHeader_area_1 {
     font-size: 24px;

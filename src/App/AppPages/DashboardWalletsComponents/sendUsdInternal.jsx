@@ -7,11 +7,11 @@ import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import { numberWithCommas } from "../../../assets/js/numberWithCommas";
-
+import { USERNAME_EMAIL_IS_VALID } from "../../../Services/TransactionServices";
 import { ToastContainer, toast } from "react-toastify";
 import ErrorModal from "../../../Components/ErrorModal/ErrorModal";
 import SuccessModal from "../../../Components/SuccessModal/SuccessModal";
-
+import { SEND_CRYPTO_FUNDS_INTERNAL } from "../../../Services/TransactionServices";
 const SendUsdInternal = ({ ToggleEgcUserWithdrawtModal, balance }) => {
   const [loading, setLoading] = useState(false);
   const [pin, setPin] = useState("");
@@ -32,12 +32,67 @@ const SendUsdInternal = ({ ToggleEgcUserWithdrawtModal, balance }) => {
   });
 
   const sendFunds = async () => {
-    alert("funds sent");
+    setLoading(true);
+    const response = await SEND_CRYPTO_FUNDS_INTERNAL({
+      ...payload,
+      pin_code: pin,
+    });
+    // console.log(response);
+
+    if (response.success) {
+      setSuccessMsg("Transaction succesful");
+      setSuccessModal(true);
+      setLoading(false);
+      return;
+    }
+    if (!response.success) {
+      toast.error(response.data.errorMessage);
+      setLoading(false);
+
+      return;
+    }
   };
 
   const handleOnChange = async (e) => {
     const { id, value } = e.target;
     setPayload({ ...payload, [id]: value });
+    console.log("====================================");
+    console.log(value);
+    console.log("====================================");
+    if (id === "amount") {
+      return;
+    }
+    setBeneficiaryData("");
+    setHasUser(false);
+    if (e.target.value === "") {
+      setFetchingUser(false);
+      setHasUserError(false);
+      setHasUserSuccess(false);
+    } else {
+      setFetchingUser(true);
+      setHasUserError(false);
+      setHasUserSuccess(false);
+
+      const data = {
+        username_email: value,
+        type: "username_email",
+      };
+
+      const resp = await USERNAME_EMAIL_IS_VALID(data);
+      setFetchingUser(false);
+      console.log(resp);
+      if (resp.data.success === false) {
+        setHasUser(false);
+        setBeneficiaryData("");
+        setHasUserError(true);
+        setHasUserSuccess(false);
+        return;
+      }
+      setHasUserError(false);
+      setHasUserSuccess(true);
+      setHasUser(true);
+      setBeneficiaryData(resp.data);
+    }
   };
   const AddMax = () => {
     setPayload({ amount: balance });
@@ -155,7 +210,7 @@ const SendUsdInternal = ({ ToggleEgcUserWithdrawtModal, balance }) => {
                 <div className="availegc_bal_div_title">Available</div>
                 <div className="availegc_bal_div_amount">
                   {" "}
-                  {numberWithCommas(parseFloat(balance).toFixed(2))} USD
+                  {numberWithCommas(parseFloat(balance).toFixed(2))} Egax
                 </div>
               </div>
             </div>
@@ -174,13 +229,13 @@ const SendUsdInternal = ({ ToggleEgcUserWithdrawtModal, balance }) => {
               <div className="depositMoneyDiv_cont_body_tips_div_1">
                 <InfoOutlinedIcon className="depositMoneyDiv_cont_body_tips_div_1_icon" />
                 <div className="depositMoneyDiv_cont_body_tips_div_1_txt">
-                  Minimum single withdrawal amount: 10 usd
+                  Minimum single withdrawal amount: 0.1 egax
                 </div>
               </div>
               <div className="depositMoneyDiv_cont_body_tips_div_1">
                 <InfoOutlinedIcon className="depositMoneyDiv_cont_body_tips_div_1_icon" />
                 <div className="depositMoneyDiv_cont_body_tips_div_1_txt">
-                  Maximum single withdrawal amount: 1,000,000 usd
+                  Maximum single withdrawal amount: 2,000 egax
                 </div>
               </div>
             </div>
@@ -188,7 +243,9 @@ const SendUsdInternal = ({ ToggleEgcUserWithdrawtModal, balance }) => {
         </div>
         <div className="depositMoneyDiv_cont_2">
           {loading ? (
-            <p>Loading ...</p>
+            <button className="depositMoneyDiv_cont_2_btn">
+              <ScaleLoader color="#366e51" height={20} />
+            </button>
           ) : (
             <button className="depositMoneyDiv_cont_2_btn" onClick={sendFunds}>
               Send funds
@@ -196,29 +253,11 @@ const SendUsdInternal = ({ ToggleEgcUserWithdrawtModal, balance }) => {
           )}
         </div>
 
-        {pinModal ? (
-          <WebPin
-            isLoading={loading}
-            btnFunc={sendFunds}
-            pinTitle="Enter Pin to validate Transaction"
-            pinPara="Input your transaction pin to complete this transaction"
-            btnFuncTxt="Proceed"
-            handleOnComplete={(e) => {
-              const a = e.join("");
-              setPin(a);
-              return;
-            }}
-            toggleWebpin={() => {
-              setPinModal(false);
-            }}
-          />
-        ) : null}
-
         {successModal ? (
           <SuccessModal
             SuccesTxt={successMsg}
             successFunc={() => {
-              window.location.href = "/dashboard/transaction";
+              window.location.href = "/app/wallet";
             }}
           />
         ) : null}

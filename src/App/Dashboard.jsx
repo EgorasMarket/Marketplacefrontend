@@ -5,6 +5,7 @@ import DashboardSideBar from "./DashboardSideBar";
 import DashboardHeader from "./DashboardHeader";
 import "./AppStyles/Dashboard.css";
 import "./AppStyles/event.css";
+import DashboardMobileNav from "./DashboardMobileNav";
 
 const Dashboard = () => {
   const [currentRoute, setCurrentRoute] = useState("Home");
@@ -39,10 +40,19 @@ const Dashboard = () => {
       {" "}
       <section className="event_comp">
         <div className="event_div_area">
-          <DashboardHeader currentPathName={currentRoute} routes={routes} />
+          <DashboardHeader
+            currentPathName={currentRoute}
+            routes={routes}
+            activeRoute={currentRoute}
+          />
           <div className="event_div_area_body">
             <Routes>{getRoutes(routes)}</Routes>
           </div>
+          <DashboardMobileNav
+            currentPathName={currentRoute}
+            routes={routes}
+            activeRoute={currentRoute}
+          />
         </div>
 
         <img

@@ -6,7 +6,9 @@ import formatNumber from "../../Components/FormatNumber";
 import { UserGroupIcon } from "hugeicons-react";
 import { ShoppingCart02Icon } from "hugeicons-react";
 import { FETCH_ALL_STAKE } from "../../Services/ProductServices";
+import { FETCH_STAKE_POOL_DATA } from "../../Services/userServices";
 import SyncLoader from "react-spinners/SyncLoader";
+import { FETCH_DASHBOARD_DATA } from "../../Services/userServices";
 import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
 import NodataComp from "../../Components/NoData/NodataComp";
 import "../AppStyles/dashboardEarn.css";
@@ -21,118 +23,8 @@ import {
 } from "recharts";
 const DashboardEarn = () => {
   const [stakes, setStakes] = useState([]);
-  const [graphData2, setGraphData2] = useState([]);
-  const [graphData, setGraphData] = useState([
-    {
-      value: 3729.2599999999998,
-      timestamp: "Jan 01, 2024",
-      month: "Jan",
-    },
-    {
-      value: 459.12999999999994,
-      timestamp: "Dec 30, 2023",
-      month: "Dec",
-    },
-    {
-      value: 412.28,
-      timestamp: "Dec 29, 2023",
-      month: "Dec",
-    },
-    {
-      value: 28.11,
-      timestamp: "Dec 25, 2023",
-      month: "Dec",
-    },
-    {
-      value: 0,
-      timestamp: "Dec 24, 2023",
-      month: "Dec",
-    },
-    {
-      value: 281.09999999999997,
-      timestamp: "Dec 23, 2023",
-      month: "Dec",
-    },
-    {
-      value: 103.07,
-      timestamp: "Dec 17, 2023",
-      month: "Dec",
-    },
-    {
-      value: 3738.6299999999997,
-      timestamp: "Dec 16, 2023",
-      month: "Dec",
-    },
-    {
-      value: 993.2199999999999,
-      timestamp: "Dec 10, 2023",
-      month: "Dec",
-    },
-    {
-      value: 0,
-      timestamp: "Dec 08, 2023",
-      month: "Dec",
-    },
-    {
-      value: 65.58999999999999,
-      timestamp: "Dec 07, 2023",
-      month: "Dec",
-    },
-    {
-      value: 65.58999999999999,
-      timestamp: "Dec 06, 2023",
-      month: "Dec",
-    },
-    {
-      value: 580.9399999999999,
-      timestamp: "Dec 05, 2023",
-      month: "Dec",
-    },
-    {
-      value: 65.58999999999999,
-      timestamp: "Dec 04, 2023",
-      month: "Dec",
-    },
-    {
-      value: 65.58999999999999,
-      timestamp: "Dec 03, 2023",
-      month: "Dec",
-    },
-    {
-      value: 11290.849999999999,
-      timestamp: "Dec 01, 2023",
-      month: "Dec",
-    },
-    {
-      value: 15872.779999999999,
-      timestamp: "Nov 29, 2023",
-      month: "Nov",
-    },
-  ]);
-  const [ChartValue, setChartValue] = useState(0);
-  const [ChartTime, setChartTime] = useState(0);
-  const [ChartValue2, setChartValue2] = useState(0);
-  const [ChartTime2, setChartTime2] = useState(0);
-  const [LastArray, setLastArray] = useState(0);
-  const [lastIndex, setlastIndex] = useState(0);
-  const [LastArray2, setLastArray2] = useState(0);
-  const [lastIndex2, setlastIndex2] = useState(0);
-  const CustomTooltip2 = ({ active, payload, label }) => {
-    console.log(active, payload);
-    if (active && payload && payload.length) {
-      setChartValue2(payload[0].payload.value);
-      setChartTime2(payload[0].payload.timestamp);
-    } else {
-      if (LastArray2 === 0) {
-        setChartValue2(0);
-        setChartTime2(0);
-      } else {
-        setChartValue2(LastArray2.value);
-        setChartTime2(LastArray2.timestamp);
-      }
-    }
-    return null;
-  };
+  const [graphData, setGraphData] = useState([]);
+  const [dashData, setDashData] = useState({});
 
   const { data: getProducts, isPending } = useQuery({
     queryKey: "getProducts",
@@ -152,6 +44,39 @@ const DashboardEarn = () => {
   useEffect(() => {
     FetchAllProducts();
   }, []);
+
+  const {
+    data: graph_data,
+    isPending: isGraphDataLoading,
+    isError: isGraphError,
+    error: graphError,
+  } = useQuery({
+    queryKey: "graph_data",
+    queryFn: async () => {
+      const res = await FETCH_STAKE_POOL_DATA();
+      console.log("====================================");
+      console.log(res);
+      console.log(res, "graph data");
+      setGraphData(res.data.stakeData);
+      return res;
+    },
+  });
+  const {
+    data: dashInfo,
+    isPending: isDashLoading,
+    isError: isDashError,
+    error: dashError,
+  } = useQuery({
+    queryKey: "dash_data",
+    queryFn: async () => {
+      const res = await FETCH_DASHBOARD_DATA();
+      console.log("====================================");
+      console.log(res);
+      console.log(res);
+      setDashData(res.data);
+      return res;
+    },
+  });
   return (
     <div className="dashboardEarnDiv">
       <div className="dashboardEarnDiv_cont1">
@@ -167,7 +92,7 @@ const DashboardEarn = () => {
                   alt=""
                   className="dashboardEarnDiv_cont1_div1_earn_amount_cont1_amount_img"
                 />
-                1,000
+                {dashData.amount_earned}
                 <span className="dashboardEarnDiv_cont1_div1_earn_amount_cont1_amount_span">
                   Egax
                 </span>
@@ -210,14 +135,10 @@ const DashboardEarn = () => {
                         />
                       </linearGradient>
                     </defs>
-                    {/* <CartesianGrid strokeDasharray="3 3" /> */}
-                    {/* <XAxis dataKey="month" stroke="0" color="#fff" /> */}
-                    {/* <YAxis /> */}
-                    <Tooltip content={<CustomTooltip2 />} />
-                    {/* <Legend /> */}
+
                     <Bar
                       // type="monotone"
-                      dataKey="value"
+                      dataKey="reward"
                       // stroke="#51cb89"
                       // fillOpacity={1}
                       fill="url(#colorUvBar1)"
@@ -238,7 +159,7 @@ const DashboardEarn = () => {
                 size={30}
                 className="dashboardEarnDiv_cont1_div1_cont2_amount_icon"
               />
-              30{" "}
+              {stakes.length}
               <span className="dashboardEarnDiv_cont1_div1_earn_amount_cont1_amount_span">
                 prods
               </span>

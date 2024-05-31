@@ -396,7 +396,7 @@
   background: black;
   color: #a6a6b0;
   padding-right: 6em;
-  width: 100%;
+  width: -webkit-fill-available;
 }
 .availegc_bal_div {
   display: flex;

@@ -1,27 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./AppStyles/DashboardHeader.css";
 
 import { Avatar } from "modern-react-avatar";
 import "modern-react-avatar/dist/index.css";
+import { MoreHorizontalCircle01Icon } from "hugeicons-react";
 // import CloseIcon from "@mui/icons-material/Close";
 import { Notification03Icon } from "hugeicons-react";
 import { Copy01Icon } from "hugeicons-react";
 import getUserInfo from "../helper/userhelper";
 
-const DashboardHeader = ({ currentPathName, routes, activeRoute }) => {
+const DashboardHeader = ({ routes, activeRoute }) => {
   const [activeLink, setActiveLink] = useState("Home");
   const [headerMenu, setHeaderMenu] = useState(false);
+
+  const [settingsMenu, setSettingsMenu] = useState(false);
+  const divRef = useRef(null);
+
+  useEffect(() => {
+    // Function to handle click events
+    const handleClickOutside = (event) => {
+      if (divRef.current && !divRef.current.contains(event.target)) {
+        setSettingsMenu(false);
+      }
+    };
+
+    // Add the event listener
+    document.addEventListener("click", handleClickOutside);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
   const ToglleActiveLink = (e) => {
     let id = e.currentTarget.id;
     setActiveLink(id);
   };
+  console.log(activeLink);
   useEffect(() => {
+    console.log(activeRoute);
     if (activeRoute) {
       setActiveLink(activeRoute);
+      return;
     }
-    //// console.logog(activeLink, activeRoute);
   }, [activeRoute]);
-
+  const ToggleSettingsMenu = () => {
+    setSettingsMenu(!settingsMenu);
+  };
   return (
     <div className="DashboardHeader">
       <div className="DashboardHeader_area">
@@ -32,12 +57,13 @@ const DashboardHeader = ({ currentPathName, routes, activeRoute }) => {
               alt=""
               className="event_sideBar_div_area_1_logo"
             />
-            Ego404
+            Egoearn
           </div>
         </div>
         <div className="DashboardHeader_area_links">
           {routes
             .filter((data) => data.layout === "/app")
+            .slice(0, 6)
             .map((data) => (
               <>
                 {data.name === "ProductDetail" ? null : data.name ===
@@ -64,6 +90,51 @@ const DashboardHeader = ({ currentPathName, routes, activeRoute }) => {
                 )}
               </>
             ))}
+          <div className="more_div" ref={divRef} onClick={ToggleSettingsMenu}>
+            <MoreHorizontalCircle01Icon
+              size={24}
+              className={
+                activeLink == " Orders" ||
+                activeLink == " Transactions" ||
+                activeLink == " Referral"
+                  ? "DashboardNav_body_1_icon_more_active"
+                  : "DashboardNav_body_1_icon_more"
+              }
+            />
+            {settingsMenu ? (
+              <div className="more_links_div">
+                {routes
+                  .filter((data) => data.layout === "/app")
+                  .slice(6)
+                  .map((data) => (
+                    <>
+                      {data.name === "ProductDetail" ? null : data.name ===
+                        "Checkout" ? null : (
+                        <a
+                          href={`${data.layout}/${data.path}`}
+                          onclick={ToglleActiveLink}
+                          id={data.name}
+                          className={
+                            activeLink === data.name
+                              ? "DashboardNav_body_1_active"
+                              : "DashboardNav_body_1"
+                          }
+                        >
+                          <div className="DashboardHeader_area_links_link1_div_head">
+                            {data.icon}
+                          </div>
+                          <div className="DashboardHeader_area_links_link1_div_head">
+                            {data.name} {data.name == "Earn" ? "🔥" : null}
+                          </div>
+                          {/* </div> */}
+                        </a>
+                      )}
+                    </>
+                  ))}
+              </div>
+            ) : null}
+            {/* More */}
+          </div>
         </div>
         <div className="DashboardHeader_area_2">
           <div className="DashboardHeader_area_2_cont1">
