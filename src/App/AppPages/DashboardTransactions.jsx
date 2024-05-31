@@ -6,6 +6,7 @@ import { ShimmerButton } from "react-shimmer-effects-18";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { TRANSACTIONS } from "../../Services/TransactionServices";
 import getUserInfo from "../../helper/userhelper";
+import { getUserMainInfo } from "../../hooks/useGetUserInfo";
 
 const DashboardTransactions = () => {
   const [contentLoadingTable, setContentLoadingTable] = useState(false);
@@ -58,8 +59,8 @@ const DashboardTransactions = () => {
           contentLoading={getTransactionLoding}
           dummyData={Staticdata.productsTableData.slice(0, 7)}
           view={false}
-          userName={getUserInfo().username}
-          email={getUserInfo().email}
+          userName={getUserMainInfo().username}
+          email={getUserMainInfo().email}
         />
       </div>
     </div>

@@ -25,6 +25,7 @@ import {
   FETCH_REFERRAL_DATA,
   FETCH_STAKE_POOL_DATA,
 } from "../../Services/userServices";
+import { getUserMainInfo } from "../../hooks/useGetUserInfo";
 
 const DashboardHome = () => {
   const queryClient = useQueryClient();
@@ -483,7 +484,7 @@ const DashboardHome = () => {
             TableData={transaction.slice(0, 7)}
             dummyData={Staticdata.productsTableData.slice(0, 8)}
             contentLoading={getTransactionLoding}
-            userName={getUserInfo().username}
+            userName={getUserMainInfo().username}
           />
         </div>
       </div>

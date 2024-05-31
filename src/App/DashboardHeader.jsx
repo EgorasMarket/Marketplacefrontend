@@ -7,8 +7,10 @@ import "modern-react-avatar/dist/index.css";
 import { Notification03Icon } from "hugeicons-react";
 import { Copy01Icon } from "hugeicons-react";
 import getUserInfo from "../helper/userhelper";
-
+import { useUser } from "../hooks/useUser";
+import { getUserMainInfo } from "../hooks/useGetUserInfo";
 const DashboardHeader = ({ currentPathName, routes, activeRoute }) => {
+  const { user } = useUser();
   const [activeLink, setActiveLink] = useState("Home");
   const [headerMenu, setHeaderMenu] = useState(false);
   const ToglleActiveLink = (e) => {
@@ -70,10 +72,11 @@ const DashboardHeader = ({ currentPathName, routes, activeRoute }) => {
             <Notification03Icon className="DashboardHeader_area_2_cont1_icon" />
           </div>
           <div className="wallet_address_header_Div">
-            {`${getUserInfo().wallet_address.slice(
+            {/* {`${getUserInfo()?.wallet_address.slice( */}
+            {`${getUserMainInfo()?.wallet_address.slice(
               0,
               4
-            )}...${getUserInfo().wallet_address.slice(38, 42)}`}
+            )}...${getUserMainInfo()?.wallet_address.slice(38, 42)}`}
             <Copy01Icon className="wallet_address_header_Div_icon1" size={20} />
           </div>
           {/* <div className="DashboardHeader_area_2_cont1">
@@ -82,7 +85,8 @@ const DashboardHeader = ({ currentPathName, routes, activeRoute }) => {
           <div className="DashboardHeader_area_2_cont2">
             <div className="DashboardHeader_area_2_cont2_cont1">
               <Avatar
-                name={getUserInfo().username}
+                name={getUserMainInfo?.username}
+                // name={getUserInfo().username}
                 size="small"
                 className="DashboardHeader_area_2_cont2_cont1_avatar"
               />

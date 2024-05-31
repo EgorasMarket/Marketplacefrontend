@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { routes } from "../routes/routes";
 import DashboardSideBar from "./DashboardSideBar";
 import DashboardHeader from "./DashboardHeader";
 import "./AppStyles/Dashboard.css";
 import "./AppStyles/event.css";
+import { useUser } from "../hooks/useUser";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+  const { user, loading } = useUser();
   const [currentRoute, setCurrentRoute] = useState("Home");
 
   const currentPathname = location.pathname;
@@ -19,6 +28,7 @@ const Dashboard = () => {
       setCurrentRoute(currentRoute.name);
     }
   }, [currentPathname]);
+
   const getRoutes = (routes) => {
     return routes.map((data, key) => {
       if (data.layout === "/app") {
@@ -34,6 +44,8 @@ const Dashboard = () => {
       }
     });
   };
+  // if (user === null && loading === false) return navigate("/login");
+  if (user === null && loading === false) return navigate("/login");
   return (
     <div className="event_div">
       {" "}

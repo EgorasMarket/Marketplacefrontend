@@ -1,6 +1,7 @@
 export const BASE_SERVER = "https://blockreward.egoras.com";
 
 export const LOGIN_ROUTE = `/pub/user/login`;
+export const VERIFY_USER_ROUTE = `/api/me`;
 export const REGISTER_ROUTE = `/pub/user/register`;
 export const TRANSACTION_ROUTE = `/portfolio/get/transaction/history`;
 export const FETCH_ALL_PRODUCTS_ROUTE = `/product/approved`;

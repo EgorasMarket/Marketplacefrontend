@@ -3,7 +3,7 @@ import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import { QRCode } from "react-qrcode-logo";
 import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import getUserInfo from "../../../helper/userhelper";
+import { getUserMainInfo } from "../../../hooks/useGetUserInfo";
 
 const DepositUsdFromUser = ({ ToggleEgcUserDepositModal }) => {
   const copyText = () => {
@@ -58,7 +58,7 @@ const DepositUsdFromUser = ({ ToggleEgcUserDepositModal }) => {
             </div>
             <div className="depositMoneyDiv_cont_body_qr_div">
               <QRCode
-                value={getUserInfo().username}
+                value={getUserMainInfo().username}
                 quietZone={5}
                 eyeColor="#fff"
                 bgColor="#161619"
@@ -87,7 +87,7 @@ const DepositUsdFromUser = ({ ToggleEgcUserDepositModal }) => {
               <div className="depositMoneyDiv_cont_body_wallet_addr_div_input_div">
                 <input
                   type="text"
-                  value={getUserInfo().username}
+                  value={getUserMainInfo().username}
                   className="depositMoneyDiv_cont_body_wallet_addr_div_input"
                   id="myInput"
                 />

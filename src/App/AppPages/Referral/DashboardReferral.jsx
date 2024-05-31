@@ -124,7 +124,7 @@ const DashboardReferral = () => {
       <div className="swapDivCont">
         <div className="pool_deatail_area_member_div">
           <DasboardMember
-            refCode={getUserInfo().swapRef}
+            refCode={getUserMainInfo().swapRef}
             componentLoading={isReferralPending}
             refAmount={refEarn}
           />
@@ -468,7 +468,7 @@ const DashboardReferral = () => {
               </div>
               <input
                 type="text"
-                value={getUserInfo().swapRef}
+                value={getUserMainInfo().swapRef}
                 className="referral_default_value"
                 id="myInput"
               />

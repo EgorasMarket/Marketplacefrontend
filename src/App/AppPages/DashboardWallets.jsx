@@ -14,6 +14,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { TRANSACTIONS } from "../../Services/TransactionServices";
 import getUserInfo from "../../helper/userhelper";
 import { USER_BALANCE } from "../../Services/TransactionServices";
+import { getUserMainInfo } from "../../hooks/useGetUserInfo";
 
 const DashboardWallets = () => {
   const [nairaBalance, setNairaBalance] = useState("0");
@@ -132,7 +133,7 @@ const DashboardWallets = () => {
               .slice(0, 7)}
             contentLoading={getTransactionLoding}
             dummyData={Staticdata.productsTableData.slice(0, 8)}
-            userName={getUserInfo().username}
+            userName={getUserMainInfo().username}
           />
         </div>
       </div>

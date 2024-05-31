@@ -9,6 +9,7 @@ import { LOGIN } from "../../Services/auth.services";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import SuccessModal from "../../Components/SuccessModal/SuccessModal";
 import ErrorModal from "../../Components/ErrorModal/ErrorModal";
+import { QUERY_KEY } from "../../constants/queryKeys";
 // import NodataComp from "../../Components/NodatComp/NodataComp";
 
 // dummySelectData;
@@ -48,10 +49,11 @@ const Login = () => {
     onSuccess: async (data) => {
       console.log(data, "alal");
       if (data.code === 200) {
-        queryClient.setQueryData("login", data.data.user);
+        queryClient.setQueryData([QUERY_KEY.user], data.data.user);
         localStorage.setItem("x-token", data?.data?.token);
         localStorage.setItem("user-info", JSON.stringify(data?.data?.user));
-        console.log(queryClient.getQueryData("login"));
+        console.log(queryClient.getQueryData([QUERY_KEY.user]), "cached");
+
         setSuccess(true);
         return;
       }
