@@ -34,9 +34,9 @@ const Home = () => {
     await getProducts();
   };
 
-  useEffect(() => {
-    FetchAllProducts();
-  }, []);
+  // useEffect(() => {
+  //   FetchAllProducts();
+  // }, []);
   return (
     <div className="HomeDiv">
       <section className="HomeDiv_section1">

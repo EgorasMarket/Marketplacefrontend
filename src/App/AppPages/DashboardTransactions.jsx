@@ -58,8 +58,8 @@ const DashboardTransactions = () => {
           contentLoading={getTransactionLoding}
           dummyData={Staticdata.productsTableData.slice(0, 7)}
           view={false}
-          userName={getUserMainInfo().username}
-          email={getUserMainInfo().email}
+          userName={getUserMainInfo()?.username}
+          email={getUserMainInfo()?.email}
         />
       </div>
     </div>
