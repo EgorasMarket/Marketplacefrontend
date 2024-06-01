@@ -9,6 +9,19 @@
   flex-direction: column;
   width: 85%;
 }
+.dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_amount {
+  white-space: nowrap;
+}
+.egax_usd_priceSpan {
+  font-size: 12px;
+  color: #c3d2d0;
+  margin-top: 2px;
+}
+.productPriceUsd {
+  padding: 1em;
+  padding-top: 0;
+  color: #99b4b1;
+}
 .coming_soon {
   height: 100%;
   width: 100%;
@@ -59,11 +72,65 @@
 .dashboardEarnDiv {
   padding-bottom: 8em;
 }
+.ProductDetailPage_section_more_products_div {
+  /* display: flex; */
+  /* display: grid; */
+  /* gap: 20px 20px; */
+  /* width: 100%; */
+  /* grid-template-columns: repeat(4, minmax(0, 1fr)); */
+  justify-content: flex-start;
+  margin-top: 6em;
+}
+.ProductDetailPage_section_more_products_div_title {
+  font-size: 32px;
+  color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ProductDetailPage_section_more_products_div_body {
+  display: grid;
+  gap: 20px 20px;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-content: flex-start;
+  margin-top: 1em;
+}
 @media screen and (max-width: 1000px) {
   /* ====== */
   /* ====== */
   /* ====== */
   /* ====== */
+  .ProductDetailPage_section_more_products_div_body {
+    display: grid;
+    gap: 20px 20px;
+    width: max-content;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-content: flex-start;
+    margin-top: 1em;
+    /* overflow: auto; */
+  }
+  .ProductDetailPage_section_more_products_div {
+    overflow: auto;
+  }
+  .ProductDetailPage_section_more_products_div_title {
+    position: sticky;
+    left: 0;
+  }
+  .ProductDetailPage_section_more_products_div_body
+    .dashboardMarketPlace_div1_body_conts_div1 {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+  }
   .ProductDetailPage_section_area_2_tec_div {
     display: flex;
     flex-direction: column;
@@ -268,13 +335,13 @@
   .dashboardMobileNav {
     display: flex;
     background: #000;
-    padding: 10px 30px;
+    padding: 10px 10px;
     position: fixed;
     bottom: 0;
     z-index: 1000;
     width: -webkit-fill-available;
     justify-content: space-between;
-    padding-right: 2.5em;
+    /* padding-right: 2.5em; */
   }
   .DashboardNav_body_1:hover {
     color: #6d7c79;
@@ -284,7 +351,7 @@
   }
   .sticky_div_mobile {
     position: absolute;
-    background: #18b36b;
+    background: #2c8877;
     padding: 11px;
     border-radius: 50px;
     height: 50px;
@@ -316,8 +383,9 @@
     align-items: flex-start;
   }
   .more_div {
-    padding: 0 10px;
-    margin: 0;
+    padding: 0 0.5em;
+    margin-left: 8px;
+    margin-right: 11px;
   }
   .more_links_div .DashboardNav_body_1 {
     width: 100%;
@@ -394,7 +462,17 @@
   margin-top: 1em;
   color: #d3d3df;
 }
+@media screen and (max-width: 767px) {
+  .ProductDetailPage_section_more_products_div_body
+    .dashboardMarketPlace_div1_body_conts_div1 {
+    max-width: 300px;
+  }
+}
 @media screen and (max-width: 500px) {
+  .ProductDetailPage_section_more_products_div_body
+    .dashboardMarketPlace_div1_body_conts_div1 {
+    max-width: 200px;
+  }
   .dashboardMarketPlace_div1_body_conts_div1_img {
     margin: 10px;
   }
@@ -420,6 +498,7 @@
     padding-bottom: 10px;
     flex-direction: column;
     border: none;
+    flex-direction: column;
   }
   .dashboardMarketPlace_div1_body_conts_div1_amount {
     padding: 6px 10px;
@@ -427,6 +506,7 @@
     align-items: flex-end;
     font-size: 20px;
     font-weight: 600;
+    padding-bottom: 0;
   }
   .dashboardMarketPlace_div1_body_conts_div1_amount
     .dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img {
@@ -439,7 +519,10 @@
     font-size: 14px;
   }
   .dashboardMarketPlace_div1_body_conts_div1_title_div2 {
-    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    margin: 1em 0em;
+    margin-bottom: 0;
   }
   .dashboardMarketPlace_div1 {
     width: 100%;

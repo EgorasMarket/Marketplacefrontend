@@ -19,6 +19,7 @@ import Blockies from "react-blockies";
 import { ShoppingCart02Icon } from "hugeicons-react";
 import { LogoutSquare02Icon } from "hugeicons-react";
 import { ArrowUpRight01Icon } from "hugeicons-react";
+import EgaxUsdPrice from "../../Components/EgaxUsdPrice";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -148,7 +149,7 @@ const Home = () => {
               </a>
             </div>
             <div className="HomeDiv_section2_area_body">
-              {products.map((data) => (
+              {products.slice(0, 8).map((data) => (
                 <a
                   href={`/app/market/productdetail/${data.id}/${data.product_name}`}
                   className="dashboardMarketPlace_div1_body_conts_div1"
@@ -195,6 +196,10 @@ const Home = () => {
                       EGAX
                     </span>
                   </div>
+                  <EgaxUsdPrice
+                    num={parseFloat(data.amount).toFixed(2)}
+                    className="productPriceUsd"
+                  />
                   <div className="buyNow_div">
                     {" "}
                     <div className="buyNow_div_div1">View details</div>

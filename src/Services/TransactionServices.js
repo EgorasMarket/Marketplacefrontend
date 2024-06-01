@@ -4,11 +4,20 @@ import {
   USER_BALANCE_ROUTE,
   SEND_CRYPTO_INTERNAL_ROUTE,
   VERIFY_SENDOUT_EMAIL_USERNAME,
+  PRICE_TICKER_ROUTE,
 } from "./ApiRoutes";
 
 export const TRANSACTIONS = async () => {
   try {
     const res = await server.get(TRANSACTION_ROUTE);
+    return res.data;
+  } catch (error) {
+    return error.response || error.message;
+  }
+};
+export const PRICE_TICKER = async () => {
+  try {
+    const res = await server.get(PRICE_TICKER_ROUTE);
     return res.data;
   } catch (error) {
     return error.response || error.message;

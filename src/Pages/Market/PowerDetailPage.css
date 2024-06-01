@@ -254,6 +254,7 @@
   width: 100% !important;
   border-radius: 5px;
 }
+
 @media screen and (max-width: 1300px) {
   .ProductDetailPage_section_area_2 {
     margin-left: 2em;

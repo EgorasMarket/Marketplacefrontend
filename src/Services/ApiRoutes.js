@@ -4,6 +4,7 @@ export const LOGIN_ROUTE = `/pub/user/login`;
 export const VERIFY_USER_ROUTE = `/api/me`;
 export const REGISTER_ROUTE = `/pub/user/register`;
 export const TRANSACTION_ROUTE = `/portfolio/get/transaction/history`;
+export const PRICE_TICKER_ROUTE = `/web3/get/price/ticker`;
 export const FETCH_ALL_PRODUCTS_ROUTE = `/product/approved`;
 export const FETCH_ALL_ORDERS_ROUTE = `/order/my/bought/product`;
 export const FETCH_ALL_STAKE_ROUTE = `/portfolio/get/my/staking/earnings`;

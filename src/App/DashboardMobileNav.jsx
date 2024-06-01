@@ -89,7 +89,7 @@ const DashboardMobileNav = ({ routes, activeRoute }) => {
 
       <div className="more_div" ref={divRef} onClick={ToggleSettingsMenu}>
         <MoreHorizontalCircle01Icon
-          size={24}
+          size={34}
           className={
             activeLink == " Orders" ||
             activeLink == " Transactions" ||

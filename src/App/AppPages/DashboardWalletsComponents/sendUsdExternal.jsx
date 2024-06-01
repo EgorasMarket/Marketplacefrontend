@@ -7,10 +7,13 @@ import SuccessModal from "../../../Components/SuccessModal/SuccessModal";
 import { numberWithCommas } from "../../../assets/js/numberWithCommas";
 import { useMutation } from "@tanstack/react-query";
 import { SEND_CRYPTO_EXTERNAL } from "../../../Services/userServices";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 const SendUsdExternal = ({ ToggleEgcBlockchainWithdrawModal, balance }) => {
   const [successModal, setSuccessModal] = useState(false);
+  const [errorModal, setErrorModal] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
+  const [errorTxt, setErrorTxt] = useState("");
 
   const [payload, setPayload] = useState({
     symbol: "EGAX",
@@ -25,6 +28,18 @@ const SendUsdExternal = ({ ToggleEgcBlockchainWithdrawModal, balance }) => {
     mutationFn: async (payload) => {
       const res = await SEND_CRYPTO_EXTERNAL(payload);
       console.log(res, "external withdrawal");
+      if (res.code === 200) {
+        setSuccessModal(true);
+        setSuccessMsg(
+          `Your withdrawal of  ${payload.amount} ${payload.symbol} to  ${payload.wallet_address} is in progress.`
+        );
+        return;
+      }
+      if (res.data.code === 500) {
+        setErrorModal(true);
+        setErrorTxt(res.data.errorMessage);
+        return;
+      }
     },
   });
   const sendFunds = async () => {
@@ -163,7 +178,9 @@ const SendUsdExternal = ({ ToggleEgcBlockchainWithdrawModal, balance }) => {
         </div>
         <div className="depositMoneyDiv_cont_2">
           {loading ? (
-            <p>Loading ..</p>
+            <button className="depositMoneyDiv_cont_2_btn">
+              <ScaleLoader color="#366e51" height={20} />
+            </button>
           ) : (
             <button className="depositMoneyDiv_cont_2_btn" onClick={sendFunds}>
               Send Funds
@@ -175,13 +192,19 @@ const SendUsdExternal = ({ ToggleEgcBlockchainWithdrawModal, balance }) => {
           <SuccessModal
             SuccesTxt={successMsg}
             successFunc={() => {
-              window.location.href = "/dashboard/transaction";
+              window.location.href = "/app/wallet";
+            }}
+          />
+        ) : null}
+        {errorModal ? (
+          <ErrorModal
+            ErrorTxt={errorTxt}
+            errorFunc={() => {
+              setErrorModal(false);
             }}
           />
         ) : null}
       </div>
-
-      <ToastContainer />
     </div>
   );
 };

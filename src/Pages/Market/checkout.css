@@ -68,6 +68,8 @@
 }
 .ProductCheckoutPage_div_section_area_1_area1_body_1_area1_amount {
   color: #969696;
+  display: flex;
+  align-items: flex-start;
 }
 .ProductCheckoutPage_div_section_area_1_area2 {
   display: flex;
@@ -91,6 +93,8 @@
 }
 .ProductCheckoutPage_div_section_area_1_area2_cont1_para {
   font-weight: 500;
+  display: flex;
+  align-items: flex-start;
 }
 .ProductCheckoutPage_div_section_area_1_area3 {
   display: flex;
@@ -160,6 +164,8 @@
 }
 .ProductCheckoutPage_div_section_area_2_area3_cont_para {
   font-weight: 500;
+  display: flex;
+  align-items: flex-start;
 }
 .ProductCheckoutPage_div_section_area_2_area3_button {
   padding: 15px;

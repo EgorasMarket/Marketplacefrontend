@@ -16,6 +16,7 @@ import { Country, State, City } from "country-state-city";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import { USER_BALANCE } from "../../Services/TransactionServices";
+import { getUserMainInfo } from "../../hooks/useGetUserInfo";
 // import {
 //   MAKE_PAYMENT_FOR_PRODUCT,
 //   PRODUCT_DETAILS,
@@ -36,6 +37,7 @@ import {
   PURCHASE_PRODUCT,
   SUBMIT_DELIVERY_INFO,
 } from "../../Services/ProductServices";
+import EgaxUsdPrice from "../../Components/EgaxUsdPrice";
 
 const ProductCheckoutPage = () => {
   // useProtect(); // call this hooks on a component you want to protect
@@ -389,11 +391,20 @@ const ProductCheckoutPage = () => {
                           {item.product_name}
                         </div>
                         <div className="ProductCheckoutPage_div_section_area_1_area1_body_1_area1_amount">
+                          <img
+                            src="/img/egax_logo.png"
+                            alt=""
+                            className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
+                          />{" "}
                           {numberWithCommas(
                             parseFloat(payload.amount).toFixed(2)
                           )}
                           {"  "}EGAX
                         </div>
+                        <EgaxUsdPrice
+                          num={parseFloat(payload.amount).toFixed(2)}
+                          className="egax_usd_priceSpan"
+                        />
                       </div>
                     </div>
                   );
@@ -413,11 +424,22 @@ const ProductCheckoutPage = () => {
                 <div className="ProductCheckoutPage_div_section_area_1_area2_cont1_title">
                   Sub Total
                 </div>
-                <div className="ProductCheckoutPage_div_section_area_1_area2_cont1_para">
-                  {numberWithCommas(
-                    parseFloat(payload.amount * count).toFixed(2)
-                  )}{" "}
-                  {"  "}EGAX
+                <div className="ProductCheckoutPage_div_section_area_1_area2_cont1_prices">
+                  <div className="ProductCheckoutPage_div_section_area_1_area2_cont1_para">
+                    <img
+                      src="/img/egax_logo.png"
+                      alt=""
+                      className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
+                    />{" "}
+                    {numberWithCommas(
+                      parseFloat(payload.amount * count).toFixed(2)
+                    )}{" "}
+                    {"  "}EGAX
+                  </div>
+                  <EgaxUsdPrice
+                    num={parseFloat(payload.amount * count).toFixed(2)}
+                    className="egax_usd_priceSpan"
+                  />
                 </div>
               </div>
             </div>
@@ -435,12 +457,12 @@ const ProductCheckoutPage = () => {
               <div className="ProductCheckoutPage_div_section_area_2_area1_body">
                 <div className="ProductCheckoutPage_div_section_area_2_area1_body_cont">
                   <div className="ProductCheckoutPage_div_section_area_2_area1_body_cont_input">
-                    samuelify225@gmail.com
+                    {getUserMainInfo()?.email}
                   </div>
                 </div>
                 <div className="ProductCheckoutPage_div_section_area_2_area1_body_cont">
                   <div className="ProductCheckoutPage_div_section_area_2_area1_body_cont_input">
-                    +234 8164020234
+                    {getUserMainInfo()?.phone}
                   </div>
                 </div>
               </div>
@@ -586,8 +608,20 @@ const ProductCheckoutPage = () => {
                 <div className="ProductCheckoutPage_div_section_area_2_area3_cont_head">
                   Unit Amount
                 </div>
-                <div className="ProductCheckoutPage_div_section_area_2_area3_cont_para">
-                  {numberWithCommas(parseFloat(payload.amount).toFixed(2))} EGAX
+                <div className="ProductCheckoutPage_div_section_area_2_area3_cont_prices">
+                  <div className="ProductCheckoutPage_div_section_area_2_area3_cont_para">
+                    <img
+                      src="/img/egax_logo.png"
+                      alt=""
+                      className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
+                    />{" "}
+                    {numberWithCommas(parseFloat(payload.amount).toFixed(2))}{" "}
+                    EGAX
+                  </div>
+                  <EgaxUsdPrice
+                    num={parseFloat(payload.amount).toFixed(2)}
+                    className="egax_usd_priceSpan"
+                  />
                 </div>
               </div>
 
@@ -595,11 +629,22 @@ const ProductCheckoutPage = () => {
                 <div className="ProductCheckoutPage_div_section_area_2_area3_cont_head">
                   Total
                 </div>
-                <div className="ProductCheckoutPage_div_section_area_2_area3_cont_para">
-                  {numberWithCommas(
-                    parseFloat(count * payload.amount).toFixed(2)
-                  )}{" "}
-                  EGAX
+                <div className="ProductCheckoutPage_div_section_area_2_area3_cont_prices">
+                  <div className="ProductCheckoutPage_div_section_area_2_area3_cont_para">
+                    <img
+                      src="/img/egax_logo.png"
+                      alt=""
+                      className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
+                    />{" "}
+                    {numberWithCommas(
+                      parseFloat(count * payload.amount).toFixed(2)
+                    )}{" "}
+                    EGAX
+                  </div>
+                  <EgaxUsdPrice
+                    num={parseFloat(payload.amount * count).toFixed(2)}
+                    className="egax_usd_priceSpan"
+                  />
                 </div>
               </div>
 

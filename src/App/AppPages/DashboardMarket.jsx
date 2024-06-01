@@ -8,6 +8,7 @@ import {
 import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
 import Blockies from "react-blockies";
 import { ShoppingCart02Icon } from "hugeicons-react";
+import EgaxUsdPrice from "../../Components/EgaxUsdPrice";
 
 const DashboardMarket = () => {
   const [products, setProducts] = useState([]);
@@ -30,484 +31,32 @@ const DashboardMarket = () => {
     FetchAllProducts();
   }, []);
 
-  // const products = [
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  //   {
-  //     id: "1",
-  //     img: "/img/marketImgs/tesla_car_dummy.jpeg",
-  //     title: "Egoras Gen(3000)",
-  //     price: "20.43",
-  //     Owner: "0x3de...2d33",
-  //   },
-  // ];
+  const productsdummy = [
+    {
+      id: "1",
+    },
+    {
+      id: "1",
+    },
+    {
+      id: "1",
+    },
+    {
+      id: "1",
+    },
+    {
+      id: "1",
+    },
+    {
+      id: "1",
+    },
+    {
+      id: "1",
+    },
+    {
+      id: "1",
+    },
+  ];
 
   return (
     <div className="dashboardMarketPlace">
@@ -523,114 +72,44 @@ const DashboardMarket = () => {
           Trending Collections 🔥
         </div>
         <div className="market_trending_div_body">
-          <div className="dashboard_home_page_div_3_cont2_body_cont1">
-            <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div">
-              <img
-                src="/img/erc404_car_img_dummy.jpeg"
-                alt=""
-                className="dashboard_home_page_div_3_cont2_body_cont1_img_div_img"
-              />
-            </div>
-            <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div">
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_title">
-                EgoApex28
+          {products.slice(0, 4).map((data) => (
+            <a
+              className="dashboard_home_page_div_3_cont2_body_cont1"
+              href={`/app/market/productdetail/${data.id}/${data.product_name}`}
+              key={data.id}
+              id={data.id}
+            >
+              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div">
+                <img
+                  src={data.product_images}
+                  alt=""
+                  className="dashboard_home_page_div_3_cont2_body_cont1_img_div_img"
+                />
               </div>
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount">
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_title">
-                  Price
+              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div">
+                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_title">
+                  {data.product_name}
                 </div>
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt">
-                  <img
-                    src="/img/egax_logo.png"
-                    alt=""
-                    className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
-                  />{" "}
-                  20.05
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="dashboard_home_page_div_3_cont2_body_cont1">
-            <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div">
-              <img
-                src="/img/erc404_car_img_dummy.jpeg"
-                alt=""
-                className="dashboard_home_page_div_3_cont2_body_cont1_img_div_img"
-              />
-            </div>
-            <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div">
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_title">
-                EgoApex28
-              </div>
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount">
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_title">
-                  Price
-                </div>
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt">
-                  <img
-                    src="/img/egax_logo.png"
-                    alt=""
-                    className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
-                  />{" "}
-                  20.05
+                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount">
+                  <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_title">
+                    Price
+                  </div>
+                  <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt">
+                    <img
+                      src="/img/egax_logo.png"
+                      alt=""
+                      className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
+                    />{" "}
+                    {parseFloat(data.amount).toFixed(2)}
+                  </div>
+                  <EgaxUsdPrice
+                    className="egax_usd_priceSpan"
+                    num={parseFloat(data.amount).toFixed(2)}
+                  />
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="dashboard_home_page_div_3_cont2_body_cont1">
-            <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div">
-              <img
-                src="/img/erc404_car_img_dummy.jpeg"
-                alt=""
-                className="dashboard_home_page_div_3_cont2_body_cont1_img_div_img"
-              />
-            </div>
-            <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div">
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_title">
-                EgoApex28
-              </div>
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount">
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_title">
-                  Price
-                </div>
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt">
-                  <img
-                    src="/img/egax_logo.png"
-                    alt=""
-                    className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
-                  />{" "}
-                  20.05
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="dashboard_home_page_div_3_cont2_body_cont1">
-            <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div">
-              <img
-                src="/img/erc404_car_img_dummy.jpeg"
-                alt=""
-                className="dashboard_home_page_div_3_cont2_body_cont1_img_div_img"
-              />
-            </div>
-            <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div">
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_title">
-                EgoApex28
-              </div>
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount">
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_title">
-                  Price
-                </div>
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt">
-                  <img
-                    src="/img/egax_logo.png"
-                    alt=""
-                    className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
-                  />{" "}
-                  20.05
-                </div>
-              </div>
-            </div>
-          </div>
+            </a>
+          ))}
         </div>
       </div>
       <div className="dashboardMarketPlace_div1_body">
@@ -681,6 +160,10 @@ const DashboardMarket = () => {
                   EGAX
                 </span>
               </div>
+              <EgaxUsdPrice
+                num={parseFloat(data.amount).toFixed(2)}
+                className="productPriceUsd"
+              />
               <div className="buyNow_div">
                 {" "}
                 <div className="buyNow_div_div1">View details</div>

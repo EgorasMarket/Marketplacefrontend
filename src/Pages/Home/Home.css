@@ -170,6 +170,14 @@
   color: #000000;
   font-size: 28px;
   font-weight: 600;
+  padding-bottom: 0;
+}
+.HomeDiv_section2_area_body
+  .dashboardMarketPlace_div1_body_conts_div1
+  .productPriceUsd {
+  padding: 1em;
+  padding-top: 0;
+  color: #465957;
 }
 .HomeDiv_section3 {
   padding: 4em 0em;

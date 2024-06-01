@@ -8,6 +8,7 @@ import { Table } from "../../Components/Tables/TableComp";
 import Staticdata from "../../assets/json/Static";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { TRANSACTIONS } from "../../Services/TransactionServices";
+import { FETCH_PRODUCTS } from "../../Services/ProductServices";
 import getMonthFromNumber from "../../Components/MonthFromNumber";
 import {
   AreaChart,
@@ -25,12 +26,12 @@ import {
   FETCH_STAKE_POOL_DATA,
 } from "../../Services/userServices";
 import { getUserMainInfo } from "../../hooks/useGetUserInfo";
-
+import EgaxUsdPrice from "../../Components/EgaxUsdPrice";
 const DashboardHome = () => {
-  const queryClient = useQueryClient();
+  // const queryClient = useQueryClient();
 
   const [graphData2, setGraphData2] = useState([]);
-
+  const [products, setProducts] = useState([]);
   const [graphData, setGraphData] = useState([]);
   const [ChartValue, setChartValue] = useState(0);
   const [ChartTime, setChartTime] = useState(0);
@@ -48,6 +49,25 @@ const DashboardHome = () => {
   const [referralCount, setReferralCount] = useState(0);
   const [refEarn, setRefEarn] = useState(0);
   console.log(dashData);
+
+  const { data: getProducts, isPending: productLoading } = useQuery({
+    queryKey: ["getProducts"],
+    queryFn: async () => {
+      const res = await FETCH_PRODUCTS();
+      console.log("====================================");
+      console.log(res);
+      console.log(res);
+      setProducts(res.data);
+      return res;
+    },
+  });
+  const FetchAllProducts = async () => {
+    await getProducts();
+  };
+
+  useEffect(() => {
+    FetchAllProducts();
+  }, []);
   const {
     data: dashInfo,
     isPending: isDashLoading,
@@ -67,6 +87,8 @@ const DashboardHome = () => {
       return res;
     },
   });
+
+  // console.log(EgaxUsdPrice(), "errerererer");
   const {
     data: graph_data,
     isPending: isGraphDataLoading,
@@ -268,7 +290,7 @@ const DashboardHome = () => {
               className="analytics_container_1_Amount"
               onChange={CustomTooltip2}
             >
-              ${formatNumber(ChartValue2)}
+              {formatNumber(ChartValue2)} egax
             </div>
             <span className="analytics_container_1_Amount_span">
               {ChartTime2}
@@ -338,114 +360,57 @@ const DashboardHome = () => {
             Trending Products
           </div>
           <div className="dashboard_home_page_div_3_cont2_body">
-            <div className="dashboard_home_page_div_3_cont2_body_cont1">
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div">
-                <img
-                  src="/img/erc404_car_img_dummy.jpeg"
-                  alt=""
-                  className="dashboard_home_page_div_3_cont2_body_cont1_img_div_img"
-                />
-              </div>
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div">
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_title">
-                  EgoApex28
-                </div>
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount">
-                  <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_title">
-                    Price
-                  </div>
-                  <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt">
-                    <img
-                      src="/img/egax_logo.png"
-                      alt=""
-                      className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
-                    />{" "}
-                    20.05
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="dashboard_home_page_div_3_cont2_body_cont1">
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div">
-                <img
-                  src="/img/erc404_car_img_dummy.jpeg"
-                  alt=""
-                  className="dashboard_home_page_div_3_cont2_body_cont1_img_div_img"
-                />
-              </div>
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div">
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_title">
-                  EgoApex28
-                </div>
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount">
-                  <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_title">
-                    Price
-                  </div>
-                  <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt">
-                    <img
-                      src="/img/egax_logo.png"
-                      alt=""
-                      className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
-                    />{" "}
-                    20.05
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="dashboard_home_page_div_3_cont2_body_cont1">
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div">
-                <img
-                  src="/img/erc404_car_img_dummy.jpeg"
-                  alt=""
-                  className="dashboard_home_page_div_3_cont2_body_cont1_img_div_img"
-                />
-              </div>
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div">
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_title">
-                  EgoApex28
-                </div>
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount">
-                  <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_title">
-                    Price
-                  </div>
-                  <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt">
-                    <img
-                      src="/img/egax_logo.png"
-                      alt=""
-                      className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
-                    />{" "}
-                    20.05
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="dashboard_home_page_div_3_cont2_body_cont1">
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div">
-                <img
-                  src="/img/erc404_car_img_dummy.jpeg"
-                  alt=""
-                  className="dashboard_home_page_div_3_cont2_body_cont1_img_div_img"
-                />
-              </div>
-              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div">
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_title">
-                  EgoApex28
-                </div>
-                <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount">
-                  <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_title">
-                    Price
-                  </div>
-                  <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt">
-                    <img
-                      src="/img/egax_logo.png"
-                      alt=""
-                      className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
-                    />{" "}
-                    20.05
-                  </div>
-                </div>
-              </div>
-            </div>
+            {productLoading ? (
+              <>Loading...</>
+            ) : (
+              <>
+                {products.length >= 1 ? (
+                  <>
+                    {" "}
+                    {products.slice(0, 4).map((data) => (
+                      <a
+                        className="dashboard_home_page_div_3_cont2_body_cont1"
+                        href={`/app/market/productdetail/${data.id}/${data.product_name}`}
+                        key={data.id}
+                        id={data.id}
+                      >
+                        <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div">
+                          <img
+                            src={data.product_images}
+                            alt=""
+                            className="dashboard_home_page_div_3_cont2_body_cont1_img_div_img"
+                          />
+                        </div>
+                        <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div">
+                          <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_title">
+                            {data.product_name}
+                          </div>
+                          <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount">
+                            <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_title">
+                              Price
+                            </div>
+                            <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt">
+                              <img
+                                src="/img/egax_logo.png"
+                                alt=""
+                                className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_img"
+                              />{" "}
+                              <div className="dashboard_home_page_div_3_cont2_body_cont1_img_div_txt_div_amount_txt_amount">
+                                {parseFloat(data.amount).toFixed(2)} egax
+                              </div>
+                            </div>
+                            <EgaxUsdPrice
+                              className="egax_usd_priceSpan"
+                              num={parseFloat(data.amount).toFixed(2)}
+                            />
+                          </div>
+                        </div>
+                      </a>
+                    ))}
+                  </>
+                ) : null}
+              </>
+            )}
           </div>
         </div>
       </div>

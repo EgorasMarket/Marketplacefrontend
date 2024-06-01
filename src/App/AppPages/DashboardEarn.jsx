@@ -180,14 +180,14 @@ const DashboardEarn = () => {
           {" "}
           <div className="dashboardEarnDiv_cont1_div2_cont1">
             <div className="dashboardEarnDiv_cont1_div1_cont2_title">
-              Products staked
+              Products bought
             </div>
             <div className="dashboardEarnDiv_cont1_div1_cont2_amount">
               <ShoppingCart02Icon
                 size={30}
                 className="dashboardEarnDiv_cont1_div1_cont2_amount_icon"
               />
-              30{" "}
+              {stakes.length}
               <span className="dashboardEarnDiv_cont1_div1_earn_amount_cont1_amount_span">
                 prods
               </span>

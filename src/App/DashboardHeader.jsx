@@ -4,6 +4,7 @@ import "./AppStyles/DashboardHeader.css";
 import { Avatar } from "modern-react-avatar";
 import "modern-react-avatar/dist/index.css";
 import { MoreHorizontalCircle01Icon } from "hugeicons-react";
+import { Logout05Icon } from "hugeicons-react";
 // import CloseIcon from "@mui/icons-material/Close";
 import { Notification03Icon } from "hugeicons-react";
 import { Copy01Icon } from "hugeicons-react";
@@ -157,15 +158,18 @@ const DashboardHeader = ({ routes, activeRoute }) => {
           {/* <div className="DashboardHeader_area_2_cont1">
             <Notification03Icon className="DashboardHeader_area_2_cont1_icon" />
           </div> */}
+          <div
+            className="DashboardHeader_area_2_cont1"
+            onClick={() => {
+              localStorage.removeItem("x-token");
+              window.location.href = "/login";
+              // queryClient.setQueryData([QUERY_KEY.user], null);
+            }}
+          >
+            <Logout05Icon className="DashboardHeader_area_2_cont1_icon" />
+          </div>
           <div className="DashboardHeader_area_2_cont2">
-            <div
-              className="DashboardHeader_area_2_cont2_cont1"
-              onClick={() => {
-                localStorage.removeItem("x-token");
-                window.location.reload();
-                // queryClient.setQueryData([QUERY_KEY.user], null);
-              }}
-            >
+            <div className="DashboardHeader_area_2_cont2_cont1">
               <Avatar
                 name={getUserMainInfo()?.username}
                 // name={getUserInfo().username}
