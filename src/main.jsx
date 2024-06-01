@@ -4,6 +4,9 @@ import App from "./App.jsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+//make telegram webapp view show site fullscreen
+window.Telegram.WebApp.expand();
 const queryClient = new QueryClient({
   defaultOptions: {
     mutations: {},
