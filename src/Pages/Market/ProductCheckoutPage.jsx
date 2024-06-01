@@ -102,8 +102,15 @@ const ProductCheckoutPage = () => {
       },
       onSuccess: async (data) => {
         console.log(data, "alal");
+        if (!data.success) {
+          setErrorTxt(data?.data?.errorMessage || "An Error Occured");
+          setErrorModal(true);
+          return;
+        }
+
         submit_delivery_func();
       },
+      onError: async (err) => {},
     });
   const checkout = async () => {
     const body = {
